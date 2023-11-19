@@ -13,7 +13,6 @@
 
 /* ---------- FOR RESUME PAGE ---------- */
 .badges {
-  display: inline-block;
   max-width: 7rem;
   aspect-ratio: 1/1;
 }
