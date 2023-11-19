@@ -1,0 +1,65 @@
+/* ---------- FOR POTIONS GAME ---------- */
+.firebrick {
+background-color: firebrick;
+}
+
+.orange {
+background-color: orange;
+}
+
+.yellow {
+background-color: yellow;
+}
+
+.greenyellow {
+background-color: greenyellow;
+}
+
+.green {
+background-color: green;
+}
+
+.midnightblue {
+background-color: midnightblue;
+}
+
+.dodgerblue {
+background-color: dodgerblue;
+}
+
+.purple {
+background-color: purple;
+}
+
+.fuchsia {
+background-color: fuchsia;
+}
+
+.btn {
+margin: 5px;
+display: inline-block;
+aspect-ratio: 1/1;
+width: 11%;
+max-width: 150px;
+border: 5px solid transparent;
+border-radius: 20%;
+}
+
+/* changing the fill for the current guess icons */
+.bi-droplet-half {
+fill: #343a40;
+}
+
+/* class for potion bottle icons is potion-icon */
+.potion-icon {
+filter:drop-shadow(1px 1px 1px #343a40);
+}
+
+/* removing padding for the potion icon to maximise its size within the div */
+#guess-current>div.row>div.btn, #guess-history>div.row>div.btn {
+padding: 0;
+}
+
+.correct {
+border-bottom: 5px solid olive;
+}
