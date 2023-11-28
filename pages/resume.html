@@ -1,77 +1,281 @@
 <!DOCTYPE html>
 <html lang="en" data-bs-theme="dark">
-<head>
-    <meta charset="UTF-8">
+  <head>
+    <meta charset="UTF-8" />
     <title>My Resume</title>
     <h1>Nora Flynn</h1>
-    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-T3c6CoIi6uLrA9TneNEoa7RxnatzjcDSCmG1MXxSR1GAsXEV/Dwwykc2MPK8M2HN" crossorigin="anonymous">
-</head>
-<body>
-    <!-- TODO: Fix resume page to have a container, add home button, copy navbar -->
-    <h2>Summary</h2>
-    <p>Nora is an IT professional with 5 years' experience in the industry in various roles. She is keen to work more within the Microsoft suite, mainly Azure, and apply her skills to develop bespoke solutions.
+    <link
+      href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css"
+      rel="stylesheet"
+      integrity="sha384-T3c6CoIi6uLrA9TneNEoa7RxnatzjcDSCmG1MXxSR1GAsXEV/Dwwykc2MPK8M2HN"
+      crossorigin="anonymous"
+    />
+    <link href="../assets/styles/style.css" rel="stylesheet" />
+  </head>
 
-    </p>
-    <hr />
+  <body>
+    <!-- Navbar -->
+    <section id="navbar">
+      <nav
+        class="navbar navbar-expand-lg bg-body-tertiary rounded fixed-top"
+        aria-label="Navbar"
+      >
+        <div class="container-fluid">
+          <button
+            class="navbar-toggler"
+            type="button"
+            data-bs-toggle="collapse"
+            data-bs-target="#navbarsExample11"
+            aria-controls="navbarsExample11"
+            aria-expanded="false"
+            aria-label="Toggle navigation"
+          >
+            <span class="navbar-toggler-icon"></span>
+          </button>
 
-    <h2>Education</h2>
-    <h3>MSci Physics with Nanoscience, 2:1</h3>
-    <p>University of Nottingham, Nottingham, United Kingdom, 2013-2017</p>
-    <p>Nanoscience modules include Force and Function at the Nanoscale, Molecular Biophysics, Soft Condensed Matter, and Imaging and Manipulation at the Nanoscale. Topics covered in other modules include Semiconductor Physics, Introduction to Solid State Physics, Quantum Dynamics, and Atmospheric Physics.</p>
-    <hr />
+          <div class="collapse navbar-collapse d-lg-flex" id="navbarsExample11">
+            <!-- <a class="navbar-brand col-lg-3 me-0" href="#">Sitemap</a> -->
+            <ul class="navbar-nav col-lg-6 justify-content-lg-center">
+              <li class="nav-item">
+                <a
+                  class="nav-link active"
+                  aria-current="page"
+                  href="../index.html"
+                  >Home</a
+                >
+              </li>
+              <li class="nav-item">
+                <a class="nav-link" href="../pages/resume.html"
+                  >View my resume</a
+                >
+              </li>
+              <!-- <li class="nav-item">
+                    <a class="nav-link disabled" aria-disabled="true">Disabled</a>
+                </li> -->
+              <li class="nav-item dropdown">
+                <a
+                  class="nav-link dropdown-toggle"
+                  href="../pages/coming-soon.html"
+                  data-bs-toggle="dropdown"
+                  aria-expanded="false"
+                  >Check out my projects</a
+                >
+                <ul class="dropdown-menu">
+                  <li><a class="dropdown-item" href="#">Action</a></li>
+                  <li><a class="dropdown-item" href="#">Another action</a></li>
+                  <li>
+                    <a class="dropdown-item" href="./potions-game.html"
+                      >'Mix-a-lot!' game</a
+                    >
+                  </li>
+                  <li>
+                    <a class="dropdown-item" href="#"
+                      >'Am I Broke?' app - you are here</a
+                    >
+                  </li>
+                </ul>
+              </li>
+              <li class="nav-item">
+                <a class="nav-link active" aria-current="page" href="./faq.html"
+                  >FAQ</a
+                >
+              </li>
+            </ul>
+            <!-- <div class="d-lg-flex col-lg-3 justify-content-lg-end">
+                <button class="btn btn-primary">Button</button>
+                </div> -->
+          </div>
+        </div>
+      </nav>
+    </section>
 
-    <h2>Work Experience</h2>
-    <h3>Systems Integration Developer</h3>
-    <p>Derby College Group, 01.03.2023 - 10.06.2023</p>
-    <ul>
-        <li>Liaising with college stakeholders for gathering system requirements</li>
-        <li>Using the Microsoft suite to build integrations between systems, eg adding information to SharePoint lists and using Power Automate for approvals</li>
-    </ul>
-    <h3>Customer Support Analyst</h3>
-    <p>Peppermint Technology, 06.04.2021 – 31.03.2023</p>
-    <ul>
-        <li>1st and 2nd line incident support management for the Peppermint CX Product, built on MS Dynamics and SharePoint.</li>
-        <li>Participation in the full incident management lifecycle, responsibility for a number of incidents.</li>
-        <li>Professional intelligent communication with the customer and record-keeping on incidents.</li>
-        <li>Reporting defects and enhancement requests, fulfilling service requests where required.</li>
-    </ul>
-    <h3>Graduate System Support Analyst</h3>
-    <p>SCAPE, 31.07.2017 – 31.03.2021</p>
-    <ul>
-        <li>Technical lead on company-wide MS Dynamics 365 refresh and rebuild.</li>
-        <li>Technical lead on company-wide adoption of DocuSign framework.</li>
-        <li>Developed bespoke automated validation process for monthly project KPI submissions, integrating with DocuSign API, Microsoft Power Automate, Microsoft Outlook, SharePoint and SQL Server Express.</li>
-        <li>Above developed for and deployed in Azure, using Azure function apps, Azure Key Vaults, queues. Experience managing access to applications using AAD groups and managed identity.</li>
-        <li>Optimised existing SQL queries to improve performance 60x.</li>
-    </ul>
-    <hr />
+    <section id="main">
+      <div class="row mx-3 my-3">
+        <!-- left: skills -->
+        <div class="col-md-3 themed-grid-col">
+          <h2>Skills</h2>
+          <ul>
+            <li>SQL scripting ⭐️⭐️⭐️⭐️</li>
+            <li>
+              Knowledge of and ease of use of MS Power Platform ⭐️⭐️⭐️⭐️
+            </li>
+            <li>MS Dynamics 365 Sales/Marketing ⭐️⭐️⭐️⭐️</li>
+            <li>Knowledge of and ease of use of MS Azure ⭐️⭐️⭐️</li>
+            <li>Python programming ⭐️⭐️⭐️</li>
+            <li>Web front-end development ⭐️⭐️⭐️</li>
+          </ul>
+        </div>
+        <!-- center: main content -->
+        <div class="col-md-6 themed-grid-col">
+          <h2>Summary</h2>
+          <div class="text-start">
+            <p>
+              Nora is an IT professional with 5 years' experience in the
+              industry in various roles. She is keen to work more within the
+              Microsoft suite, mainly Azure, and apply her skills to develop
+              bespoke solutions.
+            </p>
+          </div>
 
-    <h2>Skills</h2>
-    <ul>
-        <li>SQL scripting ⭐️⭐️⭐️⭐️</li>
-        <li>Knowledge of and ease of use of MS Power Platform ⭐️⭐️⭐️⭐️</li>
-        <li>MS Dynamics 365 Sales/Marketing ⭐️⭐️⭐️⭐️</li>
-        <li>Knowledge of and ease of use of MS Azure ⭐️⭐️⭐️</li>
-        <li>Python programming ⭐️⭐️⭐️</li>
+          <hr />
 
-    </ul>
-    <hr />
+          <h2>Education</h2>
+          <div class="text-start">
+            <strong>Physics with Nanoscience, 2:1</strong>
+            <p>
+              University of Nottingham, Nottingham, United Kingdom, 2013-2017
+            </p>
+            <p>
+              Nanoscience modules include Force and Function at the Nanoscale,
+              Molecular Biophysics, Soft Condensed Matter, and Imaging and
+              Manipulation at the Nanoscale. Topics covered in other modules
+              include Semiconductor Physics, Introduction to Solid State
+              Physics, Quantum Dynamics, and Atmospheric Physics.
+            </p>
+          </div>
 
-    <h2>Certificates</h2>
-    <ul>
-        <li>PL-900 Power Platform Fundamentals (obtained January 2022)</li>
-        <li>MB-910 Dynamics 365 Fundamentals (CRM) (obtained July 2022)</li>
-        <li>AZ-900 Azure Fundamentals (obtained August 2022)</li>
-        <li>DP-900 Azure Data Fundamentals (obtained September 2022)</li>
-        <li>AI-900 Azure AI Fundamentals (obtained October 2022)</li>
-        <li>ITIL 4 Foundation (expires May 2025)</li>
-    </ul>
+          <hr />
 
-    <a href="./public/contact.html">Contact me</a>
-    <a href="./public/hobbies.html">My hobbies</a>
-</body>
+          <h2>Work Experience</h2>
+          <div class="text-start">
+            <strong>Systems Integration Developer</strong>
+            <p>Derby College Group, 01.03.2023 - 10.06.2023</p>
+            <ul>
+              <li>
+                Liaising with college stakeholders to gather system requirements
+              </li>
+              <li>
+                Using the Microsoft suite to build integrations between systems,
+                eg adding information to SharePoint lists and using Power
+                Automate for approvals
+              </li>
+            </ul>
+            <strong>Customer Support Analyst</strong>
+            <p>Peppermint Technology, 06.04.2021 – 13.02.2023</p>
+            <ul>
+              <li>
+                1st and 2nd line incident support management for the Peppermint
+                CX Product, built on MS Dynamics and SharePoint.
+              </li>
+              <li>
+                Participation in the full incident management lifecycle,
+                responsibility for a number of incidents.
+              </li>
+              <li>
+                Professional intelligent communication with the customer and
+                record-keeping on incidents.
+              </li>
+              <li>
+                Reporting defects and enhancement requests, fulfilling service
+                requests where required.
+              </li>
+            </ul>
+            <strong>Graduate System Support Analyst</strong>
+            <p>SCAPE, 31.07.2017 – 31.03.2021</p>
+            <ul>
+              <li>
+                Technical lead on company-wide MS Dynamics 365 refresh and
+                rebuild.
+              </li>
+              <li>
+                Technical lead on company-wide adoption of DocuSign framework.
+              </li>
+              <li>
+                Developed bespoke automated validation process for monthly
+                project KPI submissions, integrating with DocuSign API,
+                Microsoft Power Automate, Microsoft Outlook, SharePoint and SQL
+                Server Express.
+              </li>
+              <li>
+                Above developed for and deployed in Azure, using Azure function
+                apps, Azure Key Vaults, queues. Experience managing access to
+                applications using AAD groups and managed identity.
+              </li>
+              <li>
+                Optimised existing SQL queries to improve performance 60x.
+              </li>
+            </ul>
+          </div>
+          <hr />
+        </div>
+        <!-- right: certs -->
+        <div class="col-md-3 themed-grid-col">
+          <h2>Certificates</h2>
+          <div class="m-2 d-flex align-items-center">
+            <img
+              class="badges"
+              src="../assets/images/pl-900.png"
+              alt="badge for the Microsoft PL-900 exam"
+            />
+            <div>
+              PL-900 Power Platform Fundamentals <br />
+              (obtained January 2022)
+            </div>
+          </div>
+          <div class="m-2 d-flex align-items-center">
+            <img
+              class="badges"
+              src="../assets/images/mb-910.png"
+              alt="badge for the Microsoft MB-910 exam"
+            />
+            <div>
+              MB-910 Dynamics 365 Fundamentals (CRM) <br />
+              (obtained July 2022)
+            </div>
+          </div>
+          <div class="m-2 d-flex align-items-center">
+            <img
+              class="badges"
+              src="../assets/images/az-900.png"
+              alt="badge for the Microsoft AZ-900 exam"
+            />
+            <div>
+              AZ-900 Azure Fundamentals <br />
+              (obtained August 2022)
+            </div>
+          </div>
+          <div class="m-2 d-flex align-items-center">
+            <img
+              class="badges"
+              src="../assets/images/dp-900.png"
+              alt="badge for the Microsoft DP-900 exam"
+            />
+            <div>
+              DP-900 Azure Data Fundamentals <br />
+              (obtained September 2022)
+            </div>
+          </div>
+          <div class="m-2 d-flex align-items-center">
+            <img
+              class="badges"
+              src="../assets/images/ai-900.png"
+              alt="badge for the Microsoft AI-900 exam"
+            />
+            <div>
+              AI-900 Azure AI Fundamentals <br />
+              (obtained October 2022)
+            </div>
+          </div>
+          <div class="m-2 d-flex align-items-center">
+            <img
+              class="badges"
+              src="../assets/images/itil-4.png"
+              alt="badge for the AXELOS ITIL 4 exam"
+            />
+            <div>
+              ITIL 4 Foundation <br />
+              (expires May 2025)
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+    <script
+      src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"
+      integrity="sha384-C6RzsynM9kWDrMNeT87bh95OGNyZPhcTNXj1NW7RuBCsyN/o0jlpcV8Qyq46cDfL"
+      crossorigin="anonymous"
+    ></script>
+  </body>
 
-<footer>
-    © Nora Flynn, 2023
-</footer>
+  <footer>© Nora Flynn, 2023</footer>
 </html>
