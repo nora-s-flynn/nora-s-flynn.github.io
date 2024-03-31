@@ -16,3 +16,8 @@
   max-width: 7rem;
   aspect-ratio: 1/1;
 }
+
+/* ---------- FOR DND PAGE ---------- */
+.inside-list {
+  list-style-position: inside;
+}
