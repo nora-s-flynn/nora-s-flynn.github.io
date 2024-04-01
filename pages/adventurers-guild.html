@@ -5,7 +5,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Player-Run Adventurer's Guild</title>
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-T3c6CoIi6uLrA9TneNEoa7RxnatzjcDSCmG1MXxSR1GAsXEV/Dwwykc2MPK8M2HN" crossorigin="anonymous">
-    <link href="../assets/styles/style.css" rel="stylesheet">
+    <link href="../assets/styles/guild.css" rel="stylesheet">
 </head>
 <body>
     <!-- Navbar -->
@@ -81,11 +81,11 @@
                         <!-- Step 1 - The Agents -->
                         <div class="accordion-item">
                           <h2 class="accordion-header">
-                            <button class="accordion-button" type="button" data-bs-toggle="collapse" data-bs-target="#collapseOne" aria-expanded="true" aria-controls="collapseOne">
+                            <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapseOne" aria-expanded="false" aria-controls="collapseOne">
                                 Step 1 - The Agents
                             </button>
                           </h2>
-                          <div id="collapseOne" class="accordion-collapse collapse show" data-bs-parent="#accordionExample">
+                          <div id="collapseOne" class="accordion-collapse collapse" data-bs-parent="#accordionExample">
                             <div class="accordion-body">
                                 <p>When an agent joins your guild, sort them into a group based on the classic four D&D classes:</p>
                                 <blockquote class="blockquote"><p>Fighter, Rogue, Wizard, Cleric</p></blockquote>
@@ -368,16 +368,94 @@
         <!-- accordion with calculator, customisation, and mission bank? -->
         <div class="bd-example m-0 border-0 bg-body-secondary">
             <div class="accordion accordion-flush" id="refsAccordion">
-              <div class="accordion-item">
+              <!-- Calculator -->
+                <div class="accordion-item" id="calculator">
+                    <!-- TODO: find a way to make the anchor tag expand this when clicked, same for the customisation item -->
                 <h2 class="accordion-header">
                   <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#flush-collapseOne" aria-expanded="false" aria-controls="flush-collapseOne">
                     Calculator for mission outcome
                   </button>
                 </h2>
                 <div id="flush-collapseOne" class="accordion-collapse collapse">
-                  <div class="accordion-body text-start">Placeholder content for this accordion, which is intended to demonstrate the <code>.accordion-flush</code> class. This is the first item's accordion body.</div>
+                    <!-- below md breakpoint: one under another; above - side by side -->
+                  <div class="accordion-body text-start">
+                    <div class="d-flex justify-content-between">
+                        <div id="inputSliders" class="container col col-md-6">
+                            <h5>Input variables:</h5>
+                            <p><small>Initial values set to above example</small></p>
+                            <label for="L_M">Mission Level:</label>
+                            <input type="range" id="L_M" name="L_M" min="1" max="5" value="2" step="1" oninput="this.nextElementSibling.value = this.value"/>
+                            <output>2</output>
+                            
+                            <label for="L_P">Average Party Level:</label>
+                            <input type="range" id="L_P" name="L_P" min="1" max="5" value="2.25" step="0.25" oninput="this.nextElementSibling.value = this.value"/>
+                            <output>2.25</output>
+                            
+                            <label for="N_M">Suggested Number of Agents:</label>
+                            <input type="range" id="N_M" name="N_M" min="1" max="5" value="3" step="1" oninput="this.nextElementSibling.value = this.value"/>
+                            <output>3</output>
+                            
+                            <label for="N_A">Number of Agents Sent:</label>
+                            <!-- max needs to be N_M + 1 -->
+                            <input type="range" id="N_A" name="N_A" min="1" max="5" value="4" step="1" oninput="this.nextElementSibling.value = this.value"/>
+                            <output>4</output>
+    
+                            <label for="S">Team Suitability:</label>
+                            <!-- max needs to be N_M -->
+                            <input type="range" id="S" name="S" min="1" max="5" value="2" step="1" oninput="this.nextElementSibling.value = this.value"/>
+                            <output>2</output>
+    
+                            <label for="R">Guild Reputation:</label>
+                            <input type="range" id="R" name="R" min="-50" max="50" value="-3" step="1" oninput="this.nextElementSibling.value = this.value"/>
+                            <output>-3</output>
+                            
+                            <label for="B">Situational Bonus:</label>
+                            <input type="range" id="B" name="B" min="-10" max="10" value="0" step="1" oninput="this.nextElementSibling.value = this.value"/>
+                            <output>0</output>
+                        </div>
+                        <div id="results" class="chart d-flex container col col-md-6 align-items-center">
+                            <div class="bar-container">
+                                <div class="bar critical-success" style="height: 12%"></div>
+                                <div class="bar success" style="height: 50%"></div>
+                                <div class="bar mixed-outcome" style="height: 11%"></div>
+                                <div class="bar failure" style="height: 18%"></div>
+                                <div class="bar failure-intervention" style="height: 9%"></div>
+                            </div>
+                            <div class="container">
+                                <table>
+                                    <tr>
+                                        <th>D100</th>
+                                        <th>Outcome</th>
+                                    </tr>
+                                    <tr class="text-success-emphasis">
+                                        <td id="critical-success-values">89-100</td>
+                                        <td>Critical success</td>
+                                    </tr>
+                                    <tr class="text-success">
+                                        <td id="success-values">39-88</td>
+                                        <td>Success</td>
+                                    </tr>
+                                    <tr class="text-warning-emphasis">
+                                        <td id="mixed-outcome-values">28-38</td>
+                                        <td>Mixed Outcome</td>
+                                    </tr>
+                                    <tr class="text-danger-emphasis">
+                                        <td id="failure-values">10-27</td>
+                                        <td>Failure</td>
+                                    </tr>
+                                    <tr class="text-danger">
+                                        <td id="critical-failure-values">0-9</td>
+                                        <td>Failure Requiring Intervention</td>
+                                    </tr>
+                                </table>
+                            </div>
+                        </div>
+                    </div>
+                    
+                  </div>
                 </div>
               </div>
+              <!-- Customising -->
               <div class="accordion-item">
                 <h2 class="accordion-header">
                   <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#flush-collapseTwo" aria-expanded="false" aria-controls="flush-collapseTwo">
@@ -433,6 +511,7 @@
                   </div>
                 </div>
               </div>
+              <!-- Mission bank -->
               <div class="accordion-item">
                 <h2 class="accordion-header">
                   <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#flush-collapseThree" aria-expanded="false" aria-controls="flush-collapseThree">
@@ -447,10 +526,6 @@
             
               </div>
     </section>
-
-    <section id="calculator"></section>
-
-    <section id="customisation"></section>
 
     <!-- 
     <section id="main-simplified">
@@ -616,7 +691,7 @@
         </div>
     </section>
      -->
-     
+
     <section id="footer">
         <div class="container">
             <footer class="d-flex flex-wrap justify-content-between align-items-center py-3 my-4 border-top">

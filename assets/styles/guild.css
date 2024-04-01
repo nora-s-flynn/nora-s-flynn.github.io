@@ -1,0 +1,53 @@
+
+.inside-list {
+    list-style-position: inside;
+}
+
+input, label {
+    display:block;
+    width: 90%;
+}
+
+.chart {
+    overflow: hidden;
+    aspect-ratio: 4/3;
+    position: relative;
+    border: 1px solid transparent;
+}
+.bar-container {
+    float: left;
+    margin-right: 10px;
+    aspect-ratio: 5/30;
+    height: 90%;
+}
+.bar {
+    background-color: red;
+    width: 50px;
+}
+.critical-success {
+    background-color:#75b798;
+}
+.success {
+    background-color: rgba(var(--bs-success-rgb));
+}
+.mixed-outcome {
+    background-color: #ffda6a;
+}
+.failure {
+    background-color: #ea868f;
+}
+.failure-intervention {
+    background-color: rgba(var(--bs-danger-rgb));
+}
+
+@media (max-width: 768px) {
+    .bar-container {height: 50%; display: block;}
+}
+
+@media (max-width: 425px) {
+    #results {flex-direction: column;}
+}
+
+@media (max-width: 320px) {
+    table {font-size: small;}
+}
