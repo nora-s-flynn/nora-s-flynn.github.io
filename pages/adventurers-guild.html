@@ -31,10 +31,10 @@
                 <li class="nav-item dropdown">
                     <a class="nav-link dropdown-toggle" href="../pages/coming-soon.html" data-bs-toggle="dropdown" aria-expanded="false">Check out my projects</a>
                     <ul class="dropdown-menu">
-                    <li><a class="dropdown-item" href="#">Action</a></li>
+                    <li><a class="dropdown-item" href="#">'Player-Run Adventurer's Guild' - you are here</a></li>
                     <li><a class="dropdown-item" href="#">Another action</a></li>
                     <li><a class="dropdown-item" href="./potions-game.html">'Mix-a-lot!' game</a></li>
-                    <li><a class="dropdown-item" href="#">'Am I Broke?' app - you are here</a></li>
+                    <li><a class="dropdown-item" href="#">'Am I Broke?' app</a></li>
                     </ul>
                 </li>
                 <li class="nav-item">
@@ -61,7 +61,7 @@
     <secion id="main-accordion">
         <div class="container text-center">
             <div class="pb-4"><h2>The Process</h2></div>
-            <div class="row">
+            <div class="px-4 row">
                 <div class="col-sm-4">
                             <div class="card text-bg-secondary mb-3" style="max-width: 18rem;">
                                 <div class="card-body">
@@ -253,7 +253,7 @@
     <section id="refs">
         <div class="container">
             <div class="row">
-                <div class="col-md-6">
+                <div class="py-3 col-md-6">
                     <h2>Payment</h2>
                     <p>There are two ways to pay your agents:</p>
                     <table class="table table-striped">
@@ -274,7 +274,7 @@
                             <td>May not be available</td>
                         </tr>
                     </table>
-                    <p>This is the simplest model of payment, you may prefer to introduce more complicated pay negotiations.</p>
+                    <p class="text-start">This is the simplest model of payment, you may prefer to introduce more complicated pay negotiations.</p>
                     <table class="table table-striped">
                         <caption>Rates of pay</caption>
                         <tr>
@@ -314,13 +314,13 @@
                             <td>D4</td>
                         </tr>
                     </table>
-                    <p>If an agent is experienced and not on retainer, they may be taking other work. Roll their absence die to see if the agent is busy. On a 1, they are unavailable. You may not use them for this mission.</p>
+                    <p class="text-start">If an agent is experienced and not on retainer, they may be taking other work. Roll their absence die to see if the agent is busy. On a 1, they are unavailable. You may not use them for this mission.</p>
                 </div>
-                <div class="col-md-6">
+                <div class="py-3 col-md-6">
                     <h2>Reputation</h2>
-                    <p>This system uses a Reputation score for each Region in your setting, representing how NPCs view the guild.</p>
-                    <p>As agents complete missions, the guild's reputation may change in the region the quest was completed.</p>
-                    <p>This affects the odds of success of future missions in that Region, as well as how NPCs treat your PCs as they do their own adventuring:</p>
+                    <p class="text-start">This system uses a Reputation score for each Region in your setting, representing how NPCs view the guild.</p>
+                    <p class="text-start">As agents complete missions, the guild's reputation may change in the region the quest was completed.</p>
+                    <p class="text-start">This affects the odds of success of future missions in that Region, as well as how NPCs treat your PCs as they do their own adventuring:</p>
                     <table class="table table-striped">
                         <caption>Reputation</caption>
                         <tr>
@@ -360,18 +360,99 @@
                             <td>Attack, interfere, berate, flee</td>
                         </tr>
                     </table>
-                    <p>Every so often, average out reputation scores between neighbouring Regions as word spreads between them.</p>
-                    <p>You can split your setting into as many or few Regions as you like, though be aware that the more regions there are, the more missions the guild will have to complete to make an impact across the setting as a whole.</p>
+                    <p class="text-start">Every so often, average out reputation scores between neighbouring Regions as word spreads between them.</p>
+                    <p class="text-start">You can split your setting into as many or few Regions as you like, though be aware that the more regions there are, the more missions the guild will have to complete to make an impact across the setting as a whole.</p>
                 </div>
             </div>
         </div>
+        <!-- accordion with calculator, customisation, and mission bank? -->
+        <div class="bd-example m-0 border-0 bg-body-secondary">
+            <div class="accordion accordion-flush" id="refsAccordion">
+              <div class="accordion-item">
+                <h2 class="accordion-header">
+                  <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#flush-collapseOne" aria-expanded="false" aria-controls="flush-collapseOne">
+                    Calculator for mission outcome
+                  </button>
+                </h2>
+                <div id="flush-collapseOne" class="accordion-collapse collapse">
+                  <div class="accordion-body text-start">Placeholder content for this accordion, which is intended to demonstrate the <code>.accordion-flush</code> class. This is the first item's accordion body.</div>
+                </div>
+              </div>
+              <div class="accordion-item">
+                <h2 class="accordion-header">
+                  <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#flush-collapseTwo" aria-expanded="false" aria-controls="flush-collapseTwo">
+                    Customising the calculations
+                  </button>
+                </h2>
+                <div id="flush-collapseTwo" class="accordion-collapse collapse">
+                  <div class="accordion-body text-start">
+                    <p>Under the Functions tab in the calculator, you can find and change many things about how it behaves. If you have your own Desmos account, you can save your own version of the calculator that behaves just how you like it.</p>
+                    <p>The calculator uses a variable m to determine where the boundaries that separate mission outcomes fall. This m is a complicated function of the input variables, which you're welcome to change.</p>
+                    <h5>Strength Factors</h5>
+                    <p>As it is now, there is an overall swing factor a that changes how easily the boundaries move. Increasing a will increase the overall swingyness of the system.</p>
+                    <p>You can also change how much each individual effect changes the boundaries. There are the following strength factors:</p>
+                    <ul class="inside-list">
+                        <li>a - Overall strength factor affecting swingyness</li>
+                        <li>a<sub>L</sub> - Strength factor for being over/underlevelled</li>
+                        <li>a<sub>P</sub> - Strength factor for having appropriate classes</li>
+                        <li>a<sub>N</sub> - Strength factor for having the right number</li>
+                        <li>a<sub>R</sub> - Strength factor for having a good reputation</li>
+                        <li>a<sub>O</sub> - Strength factor for ad-hoc DM adjustments</li>
+                    </ul>
+                    <p>By increasing the associated strength factor, you can increase how sensitively the system depends on that variable or effect.</p>
+                    
+                    <h5>Boundary Functions</h5>
+                    <p>There are 4 boundary functions that separate the different mission outcomes. Each evaluates to a number between 1 and 100:</p>
+                    <ul class="inside-list">
+                        <li>f<sub>A</sub> - Separates 'Critical Success' from 'Success'</li>
+                        <li>f<sub>B</sub> - Separates 'Success' from 'Mixed'</li>
+                        <li>f<sub>C</sub> - Separates 'Mixed' from 'Failure'</li>
+                        <li>f<sub>D</sub> - Separates 'Failure' from 'Failure Requiring Intervention'</li>
+                    </ul>
 
+                    <h5>Offsets</h5>
+                    <p>Each boundary is determined by a tanh function that depends on m, and each is shifted by an amount specific to that boundary function, called the offset. m<sub>A</sub> is the offset for f<sub>A</sub> and so on. Changing these offsets moves boundaries closer together or further aparet, determining how much harder it is to get one mission outcome than another.</p>
+
+                    <h5>Steepnesses</h5>
+                    <p>Steepnesses, for example k<sub>A</sub>, change how slow or fast each boundary changes with respect to m. The steepness f<sub>A</sub> is set to 0.5 while the rest are set to 1. This is so that, as the players throw more and more advantages at a mission, 'Critical Success' doesn't come to dominate the odds as quickly as 'Success' does.</p>
+                    <ul class="inside-list">
+                        <li>Offsets (m), each outcome boundary is a separate tanh function, varying by offsetting each a given amount. Varying m moves boundaries closer together or further apart</li>
+                        <li>Steepnesses (k), change how slow or fast the boundary changes with respect to m. Changing these can let one outcome grow faster or slower than the others.</li>
+                    </ul>
+
+                    <h5>Calibration</h5>
+                    <p>The default values of the Boundary Variables are set to give reasonable results in the following test case:</p>
+                    <ul class="inside-list">
+                        <li>L<sub>P</sub> = L<sub>M</sub> = 5 - You're generally experienced enough</li>
+                        <li>N<sub>P</sub> = N<sub>M</sub> = 5 - You're sending the right number of people</li>
+                        <li>P<sub>P</sub> = 4 - Most of the roles asked for are covered</li>
+                        <li>R = 0 - The region is neutral towards your party</li>
+                        <li>O = 0 - There are no special circumstances to consider</li>
+                    </ul>
+
+                  </div>
+                </div>
+              </div>
+              <div class="accordion-item">
+                <h2 class="accordion-header">
+                  <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#flush-collapseThree" aria-expanded="false" aria-controls="flush-collapseThree">
+                    Mission bank
+                  </button>
+                </h2>
+                <div id="flush-collapseThree" class="accordion-collapse collapse">
+                  <div class="accordion-body text-start">Placeholder content for this accordion, which is intended to demonstrate the <code>.accordion-flush</code> class. This is the third item's accordion body. Nothing more exciting happening here in terms of content, but just filling up the space to make it look, at least at first glance, a bit more representative of how this would look in a real-world application.</div>
+                </div>
+              </div>
+            </div>
+            
+              </div>
     </section>
 
     <section id="calculator"></section>
 
     <section id="customisation"></section>
 
+    <!-- 
     <section id="main-simplified">
         <div class="row mb-3 justify-content-center invisible">
             <div class="pt-5 px-5">
@@ -534,12 +615,13 @@
             
         </div>
     </section>
-
+     -->
+     
     <section id="footer">
         <div class="container">
             <footer class="d-flex flex-wrap justify-content-between align-items-center py-3 my-4 border-top">
               <div class="col-md-4 d-flex align-items-center">
-                <span class="mb-3 mb-md-0 text-body-secondary">© 2023 Nora Flynn</span>
+                <span class="mb-3 mb-md-0 text-body-secondary">© 2024 Nora Flynn</span>
               </div>
               
               <!-- TODO: Add icons and links to  socials -->
