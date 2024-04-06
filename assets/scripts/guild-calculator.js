@@ -105,6 +105,8 @@ document.getElementById("N_M").addEventListener("change", function() {
 
 document.getElementById("N_A").addEventListener("change", function() {
     na = document.getElementById("N_A").value;
+    // set step of L_P to be 1/N_A
+    document.getElementById("L_P").step = (1/na);
     recalcActions();
 });
 

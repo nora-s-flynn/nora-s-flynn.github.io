@@ -388,20 +388,21 @@
                             <output>2</output>
                             
                             <label for="L_P">Average Party Level:</label>
+                            <!-- step needs to be 1/N_A - set via script -->
                             <input type="range" id="L_P" name="L_P" min="1" max="5" value="2.25" step="0.25" oninput="this.nextElementSibling.value = this.value"/>
                             <output>2.25</output>
                             
                             <label for="N_M">Suggested Number of Agents:</label>
-                            <input type="range" id="N_M" name="N_M" min="1" max="5" value="3" step="1" oninput="this.nextElementSibling.value = this.value"/>
+                            <input type="range" id="N_M" name="N_M" min="1" max="10" value="3" step="1" oninput="this.nextElementSibling.value = this.value"/>
                             <output>3</output>
                             
                             <label for="N_A">Number of Agents Sent:</label>
-                            <!-- max needs to be N_M + 1 -->
+                            <!-- max needs to be N_M + 1 - set via script -->
                             <input type="range" id="N_A" name="N_A" min="1" max="5" value="4" step="1" oninput="this.nextElementSibling.value = this.value"/>
                             <output>4</output>
     
                             <label for="S">Team Suitability:</label>
-                            <!-- max needs to be N_M -->
+                            <!-- max needs to be N_M - set via script -->
                             <input type="range" id="S" name="S" min="1" max="5" value="2" step="1" oninput="this.nextElementSibling.value = this.value"/>
                             <output>2</output>
     
