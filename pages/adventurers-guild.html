@@ -253,7 +253,7 @@
     <section id="refs">
         <!-- accordion with calculator, customisation, and mission bank? -->
         <div class="bd-example m-0 border-0 bg-body-secondary">
-            <div class="accordion accordion-flush" id="refsAccordion">
+            <div class="accordion accordion-flush" id="calcAccordion">
               <!-- Calculator -->
                 <div class="accordion-item" id="calculator">
                     <!-- TODO: find a way to make the anchor tag expand this when clicked, same for the customisation item -->
@@ -263,6 +263,7 @@
                   </button>
                 </h2>
                 <div id="flush-collapseOne" class="accordion-collapse collapse">
+                    <a name="calcAnchor"></a>
                     <!-- below md breakpoint: one under another; above - side by side -->
                   <div class="accordion-body text-start">
                     <div class="d-flex justify-content-between">
@@ -434,7 +435,7 @@
                         <li>O = 0 - There are no special circumstances to consider</li>
                     </ul>
 
-                    <a class="btn btn-light" data-bs-toggle="collapse" data-bs-target="#collapseCustomisations" href="#flush-collapseOne" role="button" aria-expanded="false" aria-controls="collapseCustomisations">
+                    <a class="btn btn-light" data-bs-toggle="collapse" data-bs-target="#collapseCustomisations" href="#flush-collapseOne" role="button" aria-expanded="false" aria-controls="collapseCustomisations" onclick="document.getElementById('calcAccordion').scrollIntoView();">
                         I understand, show me customisations!
                     </a>
 
