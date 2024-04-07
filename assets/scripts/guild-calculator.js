@@ -11,9 +11,11 @@ var b = 0;  // situational bonus
 // additional paramters initial values:
 var a = 2; // overall strength
 var al = 1; // strength for party level
+var ap = 1; // strength for classes
 var as = 1; // strength for suitability
 var an = 0.8; // strength for number of party memebers
 var ar = 0.8; // strength for guild reputation
+var ao = 0.8; // strength for DM adjustment
 var ab = 1.1; // strength for situational bonus
 
 // main factor for outcome - hardcoded initial value per example
@@ -83,7 +85,7 @@ function recalcActions() {
 //    console.log(crit_success_size+success_size+mixed_size+failure_size+crit_failure_size+"%"); // sanity check if they add up to 100%
 };
 
-// add event listeners for all sliders:
+// add event listeners for all sliders - input variables:
 document.getElementById("L_M").addEventListener("change", function() {
     lm = document.getElementById("L_M").value;
     recalcActions();
@@ -122,5 +124,42 @@ document.getElementById("R").addEventListener("change", function() {
 
 document.getElementById("B").addEventListener("change", function() {
     b = document.getElementById("B").value;
+    recalcActions();
+});
+
+// event lilsteners for sliders in customisations:
+document.getElementById("a_var").addEventListener("change", function() {
+    a = document.getElementById("a_var").value;
+    recalcActions();
+});
+
+document.getElementById("a_l").addEventListener("change", function() {
+    al = document.getElementById("a_l").value;
+    recalcActions();
+});
+
+document.getElementById("a_p").addEventListener("change", function() {
+    ap = document.getElementById("a_p").value;
+    recalcActions();
+});
+
+// n r o
+document.getElementById("a_n").addEventListener("change", function() {
+    an = document.getElementById("a_n").value;
+    recalcActions();
+});
+
+document.getElementById("a_r").addEventListener("change", function() {
+    ar = document.getElementById("a_r").value;
+    recalcActions();
+});
+
+document.getElementById("a_o").addEventListener("change", function() {
+    ao = document.getElementById("a_o").value;
+    recalcActions();
+});
+
+document.getElementById("a_b").addEventListener("change", function() {
+    ab = document.getElementById("a_b").value;
     recalcActions();
 });
