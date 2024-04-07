@@ -266,7 +266,8 @@
                     <!-- below md breakpoint: one under another; above - side by side -->
                   <div class="accordion-body text-start">
                     <div class="d-flex justify-content-between">
-                        <div id="inputSliders" class="container col col-md-6">
+                        <!-- Initial variables sliders -->
+                        <div id="inputSliders" class="container col col-md-3">
                             <h5>Input variables:</h5>
                             <p><small>Initial values set to above example</small></p>
                             <label for="L_M">Mission Level:</label>
@@ -300,6 +301,43 @@
                             <input type="range" id="B" name="B" min="-10" max="10" value="0" step="1" oninput="this.nextElementSibling.value = this.value"/>
                             <output>0</output>
                         </div>
+
+                        <!-- Customisation variables sliders -->
+                        <div class="collapse" id="collapseCustomisations">
+                            <!-- <div class="card card-body"> -->
+                            <div>    
+                                <label for="a_var">Overall strength factor:</label>
+                                <input type="range" id="a_var" name="a_var" min="0" max="10" value="2" oninput="this.nextElementSibling.value = this.value"/>
+                                <output>2</output>
+    
+                                <label for="a_l">Strength factor for being over/underlevelled:</label>
+                                <input type="range" id="a_l" name="a_l" min="0" max="10" value="1" step="0.1" oninput="this.nextElementSibling.value = this.value"/>
+                                <output>1</output>
+    
+                                <!-- this is also missing from the formula -->
+                                <label for="a_p">Strength factor for having appropriate classes:</label>
+                                <input type="range" id="a_p" name="a_p" min="0" max="10" value="1" step="0.1" oninput="this.nextElementSibling.value = this.value"/>
+                                <output>1</output>
+    
+                                <label for="a_n">Strength factor for having the right number of party memebrs:</label>
+                                <input type="range" id="a_n" name="a_n" min="0" max="10" value="0.8" step="0.1" oninput="this.nextElementSibling.value = this.value"/>
+                                <output>0.8</output>
+    
+                                <label for="a_r">Strength factor for having a good reputation:</label>
+                                <input type="range" id="a_r" name="a_r"  min="0" max="10" value="0.8" step="0.1" oninput="this.nextElementSibling.value = this.value"/>
+                                <output>0.8</output>
+    
+                                <label for="a_o">Strength factor for DM adjustments:</label>
+                                <input type="range" id="a_o" name="a_o"  min="0" max="10" value="0.8" step="0.1" oninput="this.nextElementSibling.value = this.value"/>
+                                <output>0.8</output>
+    
+                                <label for="a_b">Strength factor for the situational bonus:</label>
+                                <input type="range" id="a_b" name="a_b"  min="0" max="10" value="1.1" step="0.1" oninput="this.nextElementSibling.value = this.value"/>
+                                <output>1.1</output>
+    
+                            </div>
+                        </div>
+
                         <div id="results" class="chart d-flex container col col-md-6 align-items-center">
                             <div class="bar-container">
                                 <div class="bar critical-success" id="critical-success-bar" style="height: 12%"></div>
@@ -396,44 +434,9 @@
                         <li>O = 0 - There are no special circumstances to consider</li>
                     </ul>
 
-                    <a class="btn btn-light" data-bs-toggle="collapse" href="#collapseExample" role="button" aria-expanded="false" aria-controls="collapseExample">
-                        I understand, take me to customisations!
+                    <a class="btn btn-light" data-bs-toggle="collapse" data-bs-target="#collapseCustomisations" href="#flush-collapseOne" role="button" aria-expanded="false" aria-controls="collapseCustomisations">
+                        I understand, show me customisations!
                     </a>
-                    
-                    <div class="collapse" id="collapseExample">
-                        <div class="card card-body">
-                          Some placeholder content for the collapse component. This panel is hidden by default but revealed when the user activates the relevant trigger.
-                            <label for="a_var">Overall strength factor:</label>
-                            <input type="range" id="a_var" name="a_var" min="0" max="10" value="2" oninput="this.nextElementSibling.value = this.value"/>
-                            <output>2</output>
-
-                            <label for="a_l">Strength factor for being over/underlevelled:</label>
-                            <input type="range" id="a_l" name="a_l" min="0" max="10" value="1" step="0.1" oninput="this.nextElementSibling.value = this.value"/>
-                            <output>1</output>
-
-                            <!-- this is also missing from the formula -->
-                            <label for="a_p">Strength factor for having appropriate classes:</label>
-                            <input type="range" id="a_p" name="a_p" min="0" max="10" value="1" step="0.1" oninput="this.nextElementSibling.value = this.value"/>
-                            <output>1</output>
-
-                            <label for="a_n">Strength factor for having the right number of party memebrs:</label>
-                            <input type="range" id="a_n" name="a_n" min="0" max="10" value="0.8" step="0.1" oninput="this.nextElementSibling.value = this.value"/>
-                            <output>0.8</output>
-
-                            <label for="a_r">Strength factor for having a good reputation:</label>
-                            <input type="range" id="a_r" name="a_r"  min="0" max="10" value="0.8" step="0.1" oninput="this.nextElementSibling.value = this.value"/>
-                            <output>0.8</output>
-
-                            <label for="a_o">Strength factor for DM adjustments:</label>
-                            <input type="range" id="a_o" name="a_o"  min="0" max="10" value="0.8" step="0.1" oninput="this.nextElementSibling.value = this.value"/>
-                            <output>0.8</output>
-
-                            <label for="a_b">Strength factor for the situational bonus:</label>
-                            <input type="range" id="a_b" name="a_b"  min="0" max="10" value="1.1" step="0.1" oninput="this.nextElementSibling.value = this.value"/>
-                            <output>1.1</output>
-
-                        </div>
-                      </div>
 
                   </div>
                 </div>
