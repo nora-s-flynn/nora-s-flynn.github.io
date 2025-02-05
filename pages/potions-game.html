@@ -522,10 +522,31 @@
             </div>
         </div>
 
+        <!-- modal when visiting from mobile -->
+        <div id="modalMobile" class="modal fade" tabindex="-1">
+            <div class="modal-dialog">
+                <div class="modal-content">
+                    <div class="modal-header">
+                        <h5 class="modal-title">You might not be able to play</h5>
+                        <button type="button" class="btn-close" data-bs-dismiss="modal"></button>
+                    </div>
+                    <div class="modal-body">
+                        <p>You seem to have landed here using a touch-enabled device. This game is designed to be started by a physical keyboard press. If your device doesn't have a keyboard, please visit this page on a device that does.</p>
+                        <p>If you're still seeing this message and your device has a keyboard, please let me know.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+
     </section>  
 
     <script src="https://code.jquery.com/jquery-3.7.1.min.js" integrity="sha256-/JqT3SQfawRcv/BIHPThkBvs0OEvtFFmqPF/lYI/Cxo=" crossorigin="anonymous"></script>
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-C6RzsynM9kWDrMNeT87bh95OGNyZPhcTNXj1NW7RuBCsyN/o0jlpcV8Qyq46cDfL" crossorigin="anonymous"></script>
     <script src="../assets/scripts/potions-game.js"></script>
+    <script type="text/javascript">
+        $(window).on('load', function() {
+            if (matchMedia('(hover: none)').matches) {$('#modalMobile').modal('show');}
+        });
+    </script>
 </body>
 </html>
