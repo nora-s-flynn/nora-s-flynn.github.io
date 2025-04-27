@@ -1,0 +1,766 @@
+<!DOCTYPE html>
+<html lang="en" data-bs-theme="dark">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Player-Run Adventurer's Guild</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-T3c6CoIi6uLrA9TneNEoa7RxnatzjcDSCmG1MXxSR1GAsXEV/Dwwykc2MPK8M2HN" crossorigin="anonymous">
+    <link href="../assets/styles/guild.css" rel="stylesheet">
+</head>
+<body>
+    <!-- Navbar -->
+    <section id="navbar">
+        <nav class="navbar navbar-expand-lg bg-body-tertiary rounded fixed-top" aria-label="Navbar">
+            <div class="container-fluid">
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarsExample11" aria-controls="navbarsExample11" aria-expanded="false" aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+    
+            <div class="collapse navbar-collapse d-lg-flex" id="navbarsExample11">
+                <!-- <a class="navbar-brand col-lg-3 me-0" href="#">Sitemap</a> -->
+                <ul class="navbar-nav col-lg-6 justify-content-lg-center">
+                <li class="nav-item">
+                    <a class="nav-link active" aria-current="page" href="../index.html">Home</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="../pages/resume.html">View my resume</a>
+                </li>
+                <!-- <li class="nav-item">
+                    <a class="nav-link disabled" aria-disabled="true">Disabled</a>
+                </li> -->
+                <li class="nav-item dropdown">
+                    <a class="nav-link dropdown-toggle" href="../pages/coming-soon.html" data-bs-toggle="dropdown" aria-expanded="false">Check out my projects</a>
+                    <ul class="dropdown-menu">
+                    <li><a class="dropdown-item" href="#">'Player-Run Adventurer's Guild' - you are here</a></li>
+                    <!-- <li><a class="dropdown-item" href="#">Another action</a></li> -->
+                    <li><a class="dropdown-item" href="../pages/potions-game.html">'Mix-a-lot!' game</a></li>
+                    <li><a class="dropdown-item" href="#">'Am I Broke?' app</a></li>
+                    </ul>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link active" aria-current="page" href="../pages/faq.html">FAQ</a>
+                  </li>
+                </ul>
+                <!-- <div class="d-lg-flex col-lg-3 justify-content-lg-end">
+                <button class="btn btn-primary">Button</button>
+                </div> -->
+            </div>
+            </div>
+        </nav>
+    </section>
+
+    <section id="title">
+        <div class="px-4 py-4 row text-center">
+            <div class="pt-5 px-5">
+                <h1 id="heading">Welcome to the <em>Player-Run Adventurer's Guild</em></h1>
+                <div class="text-secondary">This is a project to allow DMs a fun side system for high-level PCs with a lot of NPC friends. The central idea is to take variables readily available at the table and use an online calculator to generate a D100 table showing the chance of success for any given NPC adventuring team. (Note that this is a friend's idea and he has graciously allowed me to build a webpage to showcase the principle; calculator originally hosted on Desmos.)</div>
+            </div>
+        </div>
+    </section>
+
+    <secion id="main-accordion">
+        <div class="container text-center">
+            <div class="pb-4"><h2>The Process</h2></div>
+            <div class="px-4 row">
+                <div class="col-sm-4">
+                            <div class="card text-bg-secondary mb-3" style="max-width: 18rem;">
+                                <div class="card-body">
+                                <h4 class="card-title">Find a Kidnapped Construct</h5>
+                                <h6 class="card-subtitle mb-2">Level 2 Intrigue Mission: 1 Fighter, 1 Rogue, 1 Wizard</h6>
+                                <p class="card-text"><em>Critical Success</em>: A small pet construct +10RP</p>
+                                <p class="card-text"><em>Success</em>: 1800gp + A magic item from Table B + 8RP</p>
+                                <p class="card-text"><em>Mixed Outcome</em>: 1575gp + A magic item from Table A +2RP</p>
+                                <p class="card-text"><em>Failure</em>: -200gp expenses</p>
+                                <p class="card-text"><em>Failure Requiring Intervention</em>: The kidnapper has also kidnapped a party member!</p>
+                                </div>
+                            </div>
+                        </div>
+                
+                <div class="col-8">
+                    <div class="accordion" id="accordionExample">
+                        <!-- Step 1 - The Agents -->
+                        <div class="accordion-item">
+                          <h2 class="accordion-header">
+                            <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapseOne" aria-expanded="false" aria-controls="collapseOne">
+                                Step 1 - The Agents
+                            </button>
+                          </h2>
+                          <div id="collapseOne" class="accordion-collapse collapse" data-bs-parent="#accordionExample">
+                            <div class="accordion-body">
+                                <p>When an agent joins your guild, sort them into a group based on the classic four D&D classes:</p>
+                                <blockquote class="blockquote"><p>Fighter, Rogue, Wizard, Cleric</p></blockquote>
+                                <p>These can easily be adapted for use with themed guilds. A thieves' guild might use Brute, Thief, Mage, Spy instead, and focus mostly on the Crime missions.</p>
+                                <p>We use levels 1-5, which equate to about 2 class levels each. A level 5 agent cannot progress further from working for your guild.</p>
+                            </div>
+                          </div>
+                        </div>
+                        <!-- Step 2 - Party Composition -->
+                        <div class="accordion-item">
+                          <h2 class="accordion-header">
+                            <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapseTwo" aria-expanded="false" aria-controls="collapseTwo">
+                                Step 2 - Party Composition
+                            </button>
+                          </h2>
+                          <div id="collapseTwo" class="accordion-collapse collapse" data-bs-parent="#accordionExample">
+                            <div class="accordion-body">
+                                <p class="mb-1">Next, decide who will go on this mission. You may select as many as the mission asks for, as well as an extra one. If an agent is paid per mission, they may be busy with other work, see payment section.</p>
+                                <p>For example, let's say you send:</p>
+                                <ul class="list-group list-group-flush">
+                                    <li class="list-group-item"><strong>Durkon, Level 4 Cleric</strong><br/><small>The most experienced of your guild, here to provide leadership to your underleveled team, paid per mission</small></li>
+                                    <li class="list-group-item"><strong>Minrah, Level 1 Cleric</strong><br/><small>The least experienced, in need of the training, on retainer</small></li>
+                                    <li class="list-group-item"><strong>Vaarsuvius, Level 2 Wizard</strong><br/><small>A solid pick and reliable in these sorts of encounters, on retainer</small></li>
+                                    <li class="list-group-item"><strong>Haley, Level 2 Rogue</strong><br/><small>Decent in a fight, paid per mission</small></li>
+                                </ul>
+                            </div>
+                          </div>
+                        </div>
+                        <!-- Step 3 - The Calculation -->
+                        <div class="accordion-item">
+                          <h2 class="accordion-header">
+                            <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapseThree" aria-expanded="false" aria-controls="collapseThree">
+                              Step 3 - The Calculation
+                            </button>
+                          </h2>
+                          <div id="collapseThree" class="accordion-collapse collapse" data-bs-parent="#accordionExample">
+                            <div class="accordion-body">
+                                <p class="mb-1">The <strong>Average Party Level</strong> of this team is (4+1+2+2)/4 = 2.25, Durkon's experience makes up for Minrah.</p>
+                                <p class="mb-1">The <strong>Team Suitability</strong> is given by matching the team to the example composition. Our example party has a Wizard and a Rogue, but no Fighter, so we have a Team Suitability of 2.</p>
+                                <p class="mb-1">This mission takes place in Greysky City, and let's say the guild has a Reputation of -3 there. There are no extenuating factors affecting success, so the <strong>Situational Bonus</strong> is set to 0.</p>
+                                <p>So we have the following input variables:</p>
+                                <ul class="inside-list">
+                                    <li>Mission Level = 2</li>
+                                    <li>Average Party Level = 2.25</li>
+                                    <li>Suggested Number of Agents = 3</li>
+                                    <li>Number of Agents Sent = 4</li>
+                                    <li>Team Suitability = 2</li>
+                                    <li>Guild Reputation = -3</li>
+                                    <li>Situational Bonus = 0</li>
+                                </ul>
+                                <p>We plug these numbers into <a href="#calculator">the calculator</a>. It uses complicated functions to return the D100 table for the mission outcome, determined by the following input variables:</p>
+                                <ul class="inside-list">
+                                    <li>Mission Level - L<sub>M</sub></li>
+                                    <li>Average Party Level - L<sub>P</sub></li>
+                                    <li>Suggested Number of Agents - N<sub>M</sub></li>
+                                    <li>Number of Agents Sent - N<sub>P</sub></li>
+                                    <li>Team Suitability - S</li>
+                                    <li>Guild Reputation - R</li>
+                                    <li>Situational Bonus - B</li>
+                                </ul>
+                                <p>There are also a number of controller variables built in to help a DM easily adjust how the calculator behaves. A customisation guide can be found <a href="#customisation">here</a>.</p>
+                                <table class="table table-striped">
+                                    <tr>
+                                        <th>D100</th>
+                                        <th>Outcome</th>
+                                    </tr>
+                                    <tr>
+                                        <td>89-100</td>
+                                        <td>Critical success</td>
+                                    </tr>
+                                    <tr>
+                                        <td>39-88</td>
+                                        <td>Success</td>
+                                    </tr>
+                                    <tr>
+                                        <td>28-38</td>
+                                        <td>Mixed Outcome</td>
+                                    </tr>
+                                    <tr>
+                                        <td>10-27</td>
+                                        <td>Failure</td>
+                                    </tr>
+                                    <tr>
+                                        <td>0-9</td>
+                                        <td>Failure Requiring Intervention</td>
+                                    </tr>
+                                </table>
+                            </div>
+                          </div>
+                        </div>
+                        <!-- Step 4 - The Roll -->
+                        <div class="accordion-item">
+                            <h2 class="accordion-header">
+                              <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapseFour" aria-expanded="false" aria-controls="collapseFour">
+                                Step 4 - The Roll
+                              </button>
+                            </h2>
+                            <div id="collapseFour" class="accordion-collapse collapse" data-bs-parent="#accordionExample">
+                              <div class="accordion-body">
+                                <p class="mb-1">The players roll when the agent team returns, which may be functionally immediately, or may depend on the distance the team needs to travel or the difficulty of the mission. You may choose to show the players how their choices have affected the odds.</p>
+                                <ul class="inside-list">
+                                    <li>A <span class="text-success-emphasis">Critical Success</span> usually means the guild agents overperform, and earn a special reward unique to the mission. This may include magic items, favours or agents.</li>
+                                    <li>A <span class="text-success">Success</span> means the guild completes the task exactly as asked, and earns a decent reward usually including gold (gp) and Reputation Points (RP).</li>
+                                    <li>A <span class="text-warning-emphasis">Mixed Outcome</span> implies that the point of the mission has been achieved, but with some downside. Generally similar to a Success but with a decreased reward.</li>
+                                    <li>A <span class="text-danger-emphasis">Failure</span> means the object of the mission was not achieved, and generally involves a loss of RP and sometimes a loss of gold.</li>
+                                    <li>A <span class="text-danger">Failure Requiring Intervention</span> means that the guild didn't just fail, it also needs the guildmasters to intervene personally! If the PCs don't react to the situation in time, agents and NPCs may die.</li>
+                                </ul>
+                              </div>
+                            </div>
+                        </div>
+                        <!-- Step 5 - Experience -->
+                        <div class="accordion-item">
+                            <h2 class="accordion-header">
+                              <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapseFive" aria-expanded="false" aria-controls="collapseFive">
+                                Step 5 - Experience
+                              </button>
+                            </h2>
+                            <div id="collapseFive" class="accordion-collapse collapse" data-bs-parent="#accordionExample">
+                              <div class="accordion-body">
+                                <p class="mb-1">Now we need to allocate experience!</p>
+                                <p class="mb-1">An agent needs 12 XP to level up, and receives 1XP for each entry in the following list that they accomplish:</p>
+                                <table class="table table-striped">
+                                    <caption>Experience</caption>
+                                    <tr>
+                                        <td>Is the mission's level within 2 of the agent's level?</td>
+                                        <td>1 XP</td>
+                                    </tr>
+                                    <tr>
+                                        <td>Is the mission's level within 1 of the agent's level?</td>
+                                        <td>1 XP</td>
+                                    </tr>
+                                    <tr>
+                                        <td>Is the mission's level higher than the agent's level?</td>
+                                        <td>1 XP</td>
+                                    </tr>
+                                    <tr>
+                                        <td>Did the mission have a mixed result or better?</td>
+                                        <td>1 XP</td>
+                                    </tr>
+                                    <tr>
+                                        <td>Did the mission have a successful result or better?</td>
+                                        <td>1 XP</td>
+                                    </tr>
+                                    <tr>
+                                        <td>Was the mission a critical success?</td>
+                                        <td>1 XP</td>
+                                    </tr>
+                                </table>
+                                <p class="mb-1">If they've had a Mixed Outcome:</p>
+                                <ul class="inside-list">
+                                    <li>Durkon gets 2 XP - Not much that he hadn't seen before</li>
+                                    <li>Minrah gets 4 XP - On the way to level 2</li>
+                                    <li>Mialee gets 3 XP - Less of a learning experience for her</li>
+                                    <li>Nott gets 3 XP - As above, all in a day's work</li>
+                                </ul>
+                                <p class="mb-1">A handout to help players govern their guild is available <a href="#handout">here</a>. This can be used to keep track of payment, reputation, and guild agents' experience.</p>
+                              </div>
+                            </div>
+                        </div>
+                </div>
+            </div>
+        </div>
+    </secion>
+
+    <section id="refs">
+        <!-- accordion with calculator, customisation, and mission bank? -->
+        <div class="bd-example m-0 border-0 bg-body-secondary">
+            <div class="accordion accordion-flush" id="calcAccordion">
+              <!-- Calculator -->
+                <div class="accordion-item" id="calculator">
+                    <!-- TODO: find a way to make the anchor tag expand this when clicked, same for the customisation item -->
+                <h2 class="accordion-header">
+                  <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#flush-collapseOne" aria-expanded="false" aria-controls="flush-collapseOne">
+                    Calculator for mission outcome
+                  </button>
+                </h2>
+                <div id="flush-collapseOne" class="accordion-collapse collapse">
+                    <a name="calcAnchor"></a>
+                    <!-- below md breakpoint: one under another; above - side by side -->
+                  <div class="accordion-body text-start">
+                    <div class="d-flex justify-content-between">
+                        <!-- Initial variables sliders -->
+                        <div id="inputSliders" class="container col col-md-3">
+                            <h5>Input variables:</h5>
+                            <p><small>Initial values set to above example</small></p>
+                            <label for="L_M">Mission Level:</label>
+                            <input type="range" id="L_M" name="L_M" min="1" max="5" value="2" step="1" oninput="this.nextElementSibling.value = this.value"/>
+                            <output>2</output>
+                            
+                            <label for="L_P">Average Party Level:</label>
+                            <!-- step needs to be 1/N_A - set via script -->
+                            <input type="range" id="L_P" name="L_P" min="1" max="5" value="2.25" step="0.25" oninput="this.nextElementSibling.value = this.value"/>
+                            <output>2.25</output>
+                            
+                            <label for="N_M">Suggested Number of Agents:</label>
+                            <input type="range" id="N_M" name="N_M" min="1" max="10" value="3" step="1" oninput="this.nextElementSibling.value = this.value"/>
+                            <output>3</output>
+                            
+                            <label for="N_A">Number of Agents Sent:</label>
+                            <!-- max needs to be N_M + 1 - set via script -->
+                            <input type="range" id="N_A" name="N_A" min="1" max="5" value="4" step="1" oninput="this.nextElementSibling.value = this.value"/>
+                            <output>4</output>
+    
+                            <label for="S">Team Suitability:</label>
+                            <!-- max needs to be N_M - set via script -->
+                            <input type="range" id="S" name="S" min="1" max="5" value="2" step="1" oninput="this.nextElementSibling.value = this.value"/>
+                            <output>2</output>
+    
+                            <label for="R">Guild Reputation:</label>
+                            <input type="range" id="R" name="R" min="-50" max="50" value="-3" step="1" oninput="this.nextElementSibling.value = this.value"/>
+                            <output>-3</output>
+                            
+                            <label for="B">Situational Bonus:</label>
+                            <input type="range" id="B" name="B" min="-10" max="10" value="0" step="1" oninput="this.nextElementSibling.value = this.value"/>
+                            <output>0</output>
+                        </div>
+
+                        <!-- Customisation variables sliders -->
+                        <div class="collapse" id="collapseCustomisations">
+                            <!-- <div class="card card-body"> -->
+                            <div>    
+                                <label for="a_var">Overall strength factor:</label>
+                                <input type="range" id="a_var" name="a_var" min="0" max="10" value="2" oninput="this.nextElementSibling.value = this.value"/>
+                                <output>2</output>
+    
+                                <label for="a_l">Strength factor for being over/underlevelled:</label>
+                                <input type="range" id="a_l" name="a_l" min="0" max="10" value="1" step="0.1" oninput="this.nextElementSibling.value = this.value"/>
+                                <output>1</output>
+    
+                                <!-- this is also missing from the formula -->
+                                <label for="a_p">Strength factor for having appropriate classes:</label>
+                                <input type="range" id="a_p" name="a_p" min="0" max="10" value="1" step="0.1" oninput="this.nextElementSibling.value = this.value"/>
+                                <output>1</output>
+    
+                                <label for="a_n">Strength factor for having the right number of party memebrs:</label>
+                                <input type="range" id="a_n" name="a_n" min="0" max="10" value="0.8" step="0.1" oninput="this.nextElementSibling.value = this.value"/>
+                                <output>0.8</output>
+    
+                                <label for="a_r">Strength factor for having a good reputation:</label>
+                                <input type="range" id="a_r" name="a_r"  min="0" max="10" value="0.8" step="0.1" oninput="this.nextElementSibling.value = this.value"/>
+                                <output>0.8</output>
+    
+                                <label for="a_o">Strength factor for DM adjustments:</label>
+                                <input type="range" id="a_o" name="a_o"  min="0" max="10" value="0.8" step="0.1" oninput="this.nextElementSibling.value = this.value"/>
+                                <output>0.8</output>
+    
+                                <label for="a_b">Strength factor for the situational bonus:</label>
+                                <input type="range" id="a_b" name="a_b"  min="0" max="10" value="1.1" step="0.1" oninput="this.nextElementSibling.value = this.value"/>
+                                <output>1.1</output>
+    
+                            </div>
+                        </div>
+
+                        <div id="results" class="chart d-flex container col col-md-6 align-items-center">
+                            <div class="bar-container">
+                                <div class="bar critical-success" id="critical-success-bar" style="height: 12%"></div>
+                                <div class="bar success" id="success-bar" style="height: 50%"></div>
+                                <div class="bar mixed-outcome" id="mixed-outcome-bar" style="height: 11%"></div>
+                                <div class="bar failure" id="failure-bar" style="height: 18%"></div>
+                                <div class="bar failure-intervention" id="critical-failure-bar" style="height: 9%"></div>
+                            </div>
+                            <div class="container">
+                                <table>
+                                    <tr>
+                                        <th>D100</th>
+                                        <th>Outcome</th>
+                                    </tr>
+                                    <tr class="text-success-emphasis">
+                                        <td id="critical-success-values">89-100</td>
+                                        <td>Critical success</td>
+                                    </tr>
+                                    <tr class="text-success">
+                                        <td id="success-values">39-88</td>
+                                        <td>Success</td>
+                                    </tr>
+                                    <tr class="text-warning-emphasis">
+                                        <td id="mixed-outcome-values">28-38</td>
+                                        <td>Mixed Outcome</td>
+                                    </tr>
+                                    <tr class="text-danger-emphasis">
+                                        <td id="failure-values">10-27</td>
+                                        <td>Failure</td>
+                                    </tr>
+                                    <tr class="text-danger">
+                                        <td id="critical-failure-values">0-9</td>
+                                        <td>Failure Requiring Intervention</td>
+                                    </tr>
+                                </table>
+                            </div>
+                        </div>
+                    </div>
+                    
+                  </div>
+                </div>
+              </div>
+              <!-- Customising -->
+              <div class="accordion-item">
+                <h2 class="accordion-header">
+                  <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#flush-collapseTwo" aria-expanded="false" aria-controls="flush-collapseTwo">
+                    Customising the calculations
+                  </button>
+                </h2>
+                <div id="flush-collapseTwo" class="accordion-collapse collapse">
+                  <div class="accordion-body text-start">
+                    <!-- <p>Under the Functions tab in the calculator, you can find and change many things about how it behaves. If you have your own Desmos account, you can save your own version of the calculator that behaves just how you like it.</p> -->
+                    <p>The calculator uses a variable <em>m</em> to determine where the boundaries that separate mission outcomes fall. This m is a complicated function of the input variables, which you're welcome to change.</p>
+                    <h5>Strength Factors</h5>
+                    <p>As it is now, there is an overall swing factor <em>a</em> that changes how easily the boundaries move. Increasing a will increase the overall swingyness of the system.</p>
+                    <p>You can also change how much each individual effect changes the boundaries. There are the following strength factors:</p>
+                    <ul class="inside-list">
+                        <li>a - Overall strength factor affecting swingyness</li>
+                        <li>a<sub>L</sub> - Strength factor for being over/underlevelled</li>
+                        <li>a<sub>P</sub> - Strength factor for having appropriate classes</li>
+                        <li>a<sub>N</sub> - Strength factor for having the right number</li>
+                        <li>a<sub>R</sub> - Strength factor for having a good reputation</li>
+                        <li>a<sub>O</sub> - Strength factor for ad-hoc DM adjustments</li>
+                        <li>a<sub>B</sub> - Strength factor for the situational bonus</li>
+                    </ul>
+                    <p>By increasing the associated strength factor, you can increase how sensitively the system depends on that variable or effect.</p>
+                    
+                    <h5>Boundary Functions</h5>
+                    <p>There are 4 boundary functions that separate the different mission outcomes. Each evaluates to a number between 1 and 100:</p>
+                    <ul class="inside-list">
+                        <li>f<sub>A</sub> - Separates 'Critical Success' from 'Success'</li>
+                        <li>f<sub>B</sub> - Separates 'Success' from 'Mixed'</li>
+                        <li>f<sub>C</sub> - Separates 'Mixed' from 'Failure'</li>
+                        <li>f<sub>D</sub> - Separates 'Failure' from 'Failure Requiring Intervention'</li>
+                    </ul>
+
+                    <h5>Offsets</h5>
+                    <p>Each boundary is determined by a tanh function that depends on m, and each is shifted by an amount specific to that boundary function, called the offset. m<sub>A</sub> is the offset for f<sub>A</sub> and so on. Changing these offsets moves boundaries closer together or further aparet, determining how much harder it is to get one mission outcome than another.</p>
+
+                    <h5>Steepnesses</h5>
+                    <p>Steepnesses, for example k<sub>A</sub>, change how slow or fast each boundary changes with respect to m. The steepness f<sub>A</sub> is set to 0.5 while the rest are set to 1. This is so that, as the players throw more and more advantages at a mission, 'Critical Success' doesn't come to dominate the odds as quickly as 'Success' does.</p>
+                    <ul class="inside-list">
+                        <li>Offsets (m), each outcome boundary is a separate tanh function, varying by offsetting each a given amount. Varying m moves boundaries closer together or further apart</li>
+                        <li>Steepnesses (k), change how slow or fast the boundary changes with respect to m. Changing these can let one outcome grow faster or slower than the others.</li>
+                    </ul>
+
+                    <h5>Calibration</h5>
+                    <p>The default values of the Boundary Variables are set to give reasonable results in the following test case:</p>
+                    <ul class="inside-list">
+                        <li>L<sub>P</sub> = L<sub>M</sub> = 5 - You're generally experienced enough</li>
+                        <li>N<sub>P</sub> = N<sub>M</sub> = 5 - You're sending the right number of people</li>
+                        <li>P<sub>P</sub> = 4 - Most of the roles asked for are covered</li>
+                        <li>R = 0 - The region is neutral towards your party</li>
+                        <li>O = 0 - There are no special circumstances to consider</li>
+                    </ul>
+
+                    <a class="btn btn-light" data-bs-toggle="collapse" data-bs-target="#collapseCustomisations" href="#flush-collapseOne" role="button" aria-expanded="false" aria-controls="collapseCustomisations" onclick="document.getElementById('calcAccordion').scrollIntoView();">
+                        I understand, show me customisations!
+                    </a>
+
+                  </div>
+                </div>
+              </div>
+              <!-- Mission bank -->
+              <div class="accordion-item">
+                <h2 class="accordion-header">
+                  <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#flush-collapseThree" aria-expanded="false" aria-controls="flush-collapseThree">
+                    Mission bank
+                  </button>
+                </h2>
+                <div id="flush-collapseThree" class="accordion-collapse collapse">
+                  <div class="accordion-body text-start">Placeholder content for this item. The mission bank is coming soon.</div>
+                </div>
+              </div>
+            </div>
+        </div> 
+        
+        <!-- Payment and reputation info -->
+        <div class="container">
+            <div class="row">
+                <div class="py-3 col-md-6">
+                    <h2>Payment</h2>
+                    <p>There are two ways to pay your agents:</p>
+                    <table class="table table-striped">
+                        <caption>Advantages and disadvantages of different ways to pay agents</caption>
+                        <tr>
+                            <th>Payment Method</th>
+                            <th>Advantages</th>
+                            <th>Disadvantages</th>
+                        </tr>
+                        <tr>
+                            <td>On Retainer	</td>
+                            <td>Always available for missions and small tasks</td>
+                            <td>Costs money per day</td>
+                        </tr>
+                        <tr>
+                            <td>Per Job	</td>
+                            <td>Only pay for missions they go on</td>
+                            <td>May not be available</td>
+                        </tr>
+                    </table>
+                    <p class="text-start">This is the simplest model of payment, you may prefer to introduce more complicated pay negotiations.</p>
+                    <table class="table table-striped">
+                        <caption>Rates of pay</caption>
+                        <tr>
+                            <th>Level of Agent</th>
+                            <th>Retainer Fee per Day</th>
+                            <th>Pay per Mission</th>
+                            <th>Absence Die</th>
+                        </tr>
+                        <tr>
+                            <td>1</td>
+                            <td>15gp</td>
+                            <td>150gp</td>
+                            <td>D20</td>
+                        </tr>
+                        <tr>
+                            <td>2</td>
+                            <td>25gp</td>
+                            <td>250gp</td>
+                            <td>D10</td>
+                        </tr>
+                        <tr>
+                            <td>3</td>
+                            <td>40gp</td>
+                            <td>400gp</td>
+                            <td>D8</td>
+                        </tr>
+                        <tr>
+                            <td>4</td>
+                            <td>60gp</td>
+                            <td>600gp</td>
+                            <td>D6</td>
+                        </tr>
+                        <tr>
+                            <td>5</td>
+                            <td>85gp</td>
+                            <td>850gp</td>
+                            <td>D4</td>
+                        </tr>
+                    </table>
+                    <p class="text-start">If an agent is experienced and not on retainer, they may be taking other work. Roll their absence die to see if the agent is busy. On a 1, they are unavailable. You may not use them for this mission.</p>
+                </div>
+                <div class="py-3 col-md-6">
+                    <h2>Reputation</h2>
+                    <p class="text-start">This system uses a Reputation score for each Region in your setting, representing how NPCs view the guild.</p>
+                    <p class="text-start">As agents complete missions, the guild's reputation may change in the region the quest was completed.</p>
+                    <p class="text-start">This affects the odds of success of future missions in that Region, as well as how NPCs treat your PCs as they do their own adventuring:</p>
+                    <table class="table table-striped">
+                        <caption>Reputation</caption>
+                        <tr>
+                            <th>Reputation Score (RP)</th>
+                            <th>Attitude</th>
+                            <th>Means</th>
+                            <th>Possible Actions</th>
+                        </tr>
+                        <tr>
+                            <td>40 ― 50</td>
+                            <td>Helpful</td>
+                            <td>Will take risks to help you</td>
+                            <td>Protect, heal, aid, ask to join guild</td>
+                        </tr>
+                        <tr>
+                            <td>10 ― 39</td>
+                            <td>Friendly</td>
+                            <td>Wishes you well</td>
+                            <td>Chat, advise, advocate</td>
+                        </tr>
+                        <tr>
+                            <td>-9 ― 9</td>
+                            <td>Indifferent</td>
+                            <td>Doesn’t much care</td>
+                            <td>Socially expected interaction</td>
+                        </tr>
+                        <tr>
+                            <td>-39 ― -10</td>
+                            <td>Unfriendly</td>
+                            <td>Treats you with suspicion</td>
+                            <td>Gossip, avoid, watch, insult</td>
+                        </tr>
+                        <tr>
+                            <td>-50 ― -40</td>
+                            <td>Hostile</td>
+                            <td>Wishes you ill	</td>
+                            <td>Attack, interfere, berate, flee</td>
+                        </tr>
+                    </table>
+                    <p class="text-start">Every so often, average out reputation scores between neighbouring Regions as word spreads between them.</p>
+                    <p class="text-start">You can split your setting into as many or few Regions as you like, though be aware that the more regions there are, the more missions the guild will have to complete to make an impact across the setting as a whole.</p>
+                </div>
+            </div>
+    </section>
+
+    <!-- 
+    <section id="main-simplified">
+        <div class="row mb-3 justify-content-center invisible">
+            <div class="pt-5 px-5">
+                <div class="px-4 initial-text"> 
+                    <div><h2 id="title-text">The process option 2 - with less flare</h2></div>
+                    <div class="row">
+                        <div class="col-sm-4">
+                            <div class="card text-bg-secondary mb-3" style="max-width: 18rem;">
+                                <div class="card-body">
+                                <h4 class="card-title">Find a Kidnapped Construct</h5>
+                                <h6 class="card-subtitle mb-2">Level 2 Intrigue Mission: 1 Fighter, 1 Rogue, 1 Wizard</h6>
+                                <p class="card-text"><em>Critical Success</em>: A small pet construct +10RP</p>
+                                <p class="card-text"><em>Success</em>: 1800gp + A magic item from Table B + 8RP</p>
+                                <p class="card-text"><em>Mixed Outcome</em>: 1575gp + A magic item from Table A +2RP</p>
+                                <p class="card-text"><em>Failure</em>: -200gp expenses</p>
+                                <p class="card-text"><em>Failure Requiring Intervention</em>: The kidnapper has also kidnapped a party member!</p>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="col-sm-8">
+                            <div class="mb-3">
+                                <div class="d-flex w-100 justify-content-between">
+                                    <h4 class="mb-1">Step 1 - The Agents</h4>
+                                </div>
+                                <p class="mb-1">When an agent joins your guild, sort them into a group based on the classic four D&D classes:</p>
+                                <blockquote class="blockquote"><p>Fighter, Rogue, Wizard, Cleric</p></blockquote>
+                                <p>These can easily be adapted for use with themed guilds. A thieves' guild might use Brute, Thief, Mage, Spy instead, and focus mostly on the Crime missions.</p>
+                                <p>We use levels 1-5, which equate to about 2 class levels each. A level 5 agent cannot progress further from working for your guild.</p>
+                            </div>
+                            <div class="mb-3">
+                                <div class="d-flex w-100 justify-content-between">
+                                    <h4 class="mb-1">Step 2 - Party Composition</h4>
+                                </div>
+                                <p class="mb-1">Next, decide who will go on this mission. You may select as many as the mission asks for, as well as an extra one. If an agent is paid per mission, they may be busy with other work, see payment section.</p>
+                                <p>For example, let's say you send:</p>
+                                <ul class="list-group list-group-flush">
+                                    <li class="list-group-item"><strong>Durkon, Level 4 Cleric</strong><br/><small>The most experienced of your guild, here to provide leadership to your underleveled team, paid per mission</small></li>
+                                    <li class="list-group-item"><strong>Minrah, Level 1 Cleric</strong><br/><small>The least experienced, in need of the training, on retainer</small></li>
+                                    <li class="list-group-item"><strong>Vaarsuvius, Level 2 Wizard</strong><br/><small>A solid pick and reliable in these sorts of encounters, on retainer</small></li>
+                                    <li class="list-group-item"><strong>Haley, Level 2 Rogue</strong><br/><small>Decent in a fight, paid per mission</small></li>
+                                </ul>
+                            </div>
+                            <div class="mb-3">
+                                <div class="d-flex w-100 justify-content-between">
+                                    <h4 class="mb-1">Step 3 - The Calculation</h4>
+                                </div>
+                                <p class="mb-1">The <strong>Average Party Level</strong> of this team is (4+1+2+2)/4 = 2.25, Durkon's experience makes up for Minrah.</p>
+                                <p class="mb-1">The <strong>Team Suitability</strong> is given by matching the team to the example composition. Our example party has a Wizard and a Rogue, but no Fighter, so we have a Team Suitability of 2.</p>
+                                <p class="mb-1">This mission takes place in Greysky City, and let's say the guild has a Reputation of -3 there. There are no extenuating factors affecting success, so the <strong>Situational Bonus</strong> is set to 0.</p>
+                                <p>So we have the following input variables:</p>
+                                <ul>
+                                    <li>Mission Level = 2</li>
+                                    <li>Average Party Level = 2.25</li>
+                                    <li>Suggested Number of Agents = 3</li>
+                                    <li>Number of Agents Sent = 4</li>
+                                    <li>Team Suitability = 2</li>
+                                    <li>Guild Reputation = -3</li>
+                                    <li>Situational Bonus = 0</li>
+                                </ul>
+                                <p>We plug these numbers into <a href="#calculator">the calculator</a>. It uses complicated functions to return the D100 table for the mission outcome, determined by the following input variables:</p>
+                                <ul>
+                                    <li>Mission Level - L<sub>M</sub></li>
+                                    <li>Average Party Level - L<sub>P</sub></li>
+                                    <li>Suggested Number of Agents - N<sub>M</sub></li>
+                                    <li>Number of Agents Sent - N<sub>P</sub></li>
+                                    <li>Team Suitability - S</li>
+                                    <li>Guild Reputation - R</li>
+                                    <li>Situational Bonus - B</li>
+                                </ul>
+                                <p>There are also a number of controller variables built in to help a DM easily adjust how the calculator behaves. A customisation guide can be found <a href="#customisation">here</a>.</p>
+                                <table class="table table-striped">
+                                    <tr>
+                                        <th>D100</th>
+                                        <th>Outcome</th>
+                                    </tr>
+                                    <tr>
+                                        <td>89-100</td>
+                                        <td>Critical success</td>
+                                    </tr>
+                                    <tr>
+                                        <td>39-88</td>
+                                        <td>Success</td>
+                                    </tr>
+                                    <tr>
+                                        <td>28-38</td>
+                                        <td>Mixed Outcome</td>
+                                    </tr>
+                                    <tr>
+                                        <td>10-27</td>
+                                        <td>Failure</td>
+                                    </tr>
+                                    <tr>
+                                        <td>0-9</td>
+                                        <td>Failure Requiring Intervention</td>
+                                    </tr>
+                                </table>
+                            </div>
+
+                            <div class="mb-3">
+                                <div class="d-flex w-100 justify-content-between">
+                                    <h4 class="mb-1">Step 4 - The Roll</h4>
+                                </div>
+                                <p class="mb-1">The players roll when the agent team returns, which may be functionally immediately, or may depend on the distance the team needs to travel or the difficulty of the mission. You may choose to show the players how their choices have affected the odds.</p>
+                                <ul>
+                                    <li>A <span class="text-success-emphasis">Critical Success</span> usually means the guild agents overperform, and earn a special reward unique to the mission. This may include magic items, favours or agents.</li>
+                                    <li>A <span class="text-success">Success</span> means the guild completes the task exactly as asked, and earns a decent reward usually including gold (gp) and Reputation Points (RP).</li>
+                                    <li>A <span class="text-warning-emphasis">Mixed Outcome</span> implies that the point of the mission has been achieved, but with some downside. Generally similar to a Success but with a decreased reward.</li>
+                                    <li>A <span class="text-danger-emphasis">Failure</span> means the object of the mission was not achieved, and generally involves a loss of RP and sometimes a loss of gold.</li>
+                                    <li>A <span class="text-danger">Failure Requiring Intervention</span> means that the guild didn't just fail, it also needs the guildmasters to intervene personally! If the PCs don't react to the situation in time, agents and NPCs may die.</li>
+                                </ul>
+                            </div>
+                            
+                            <div class="mb-3">
+                                <div class="d-flex w-100 justify-content-between">
+                                    <h4 class="mb-1">Step 5 - Experience</h4>
+                                </div>
+                                <p class="mb-1">Now we need to allocate experience!</p>
+                                <p class="mb-1">An agent needs 12 XP to level up, and receives 1XP for each entry in the following list that they accomplish:</p>
+                                <table class="table table-striped">
+                                    <caption>Experience</caption>
+                                    <tr>
+                                        <td>Is the mission's level within 2 of the agent's level?</td>
+                                        <td>1 XP</td>
+                                    </tr>
+                                    <tr>
+                                        <td>Is the mission's level within 1 of the agent's level?</td>
+                                        <td>1 XP</td>
+                                    </tr>
+                                    <tr>
+                                        <td>Is the mission's level higher than the agent's level?</td>
+                                        <td>1 XP</td>
+                                    </tr>
+                                    <tr>
+                                        <td>Did the mission have a mixed result or better?</td>
+                                        <td>1 XP</td>
+                                    </tr>
+                                    <tr>
+                                        <td>Did the mission have a successful result or better?</td>
+                                        <td>1 XP</td>
+                                    </tr>
+                                    <tr>
+                                        <td>Was the mission a critical success?</td>
+                                        <td>1 XP</td>
+                                    </tr>
+                                </table>
+                                <p class="mb-1">If they've had a Mixed Outcome:</p>
+                                <ul>
+                                    <li>Durkon gets 2 XP - Not much that he hadn't seen before</li>
+                                    <li>Minrah gets 4 XP - On the way to level 2</li>
+                                    <li>Mialee gets 3 XP - Less of a learning experience for her</li>
+                                    <li>Nott gets 3 XP - As above, all in a day's work</li>
+                                </ul>
+                                <p class="mb-1">A handout to help players govern their guild is available <a href="#handout">here</a>. This can be used to keep track of payment, reputation, and guild agents' experience.</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>    
+            </div>
+            
+        </div>
+    </section>
+     -->
+
+    <section id="footer">
+        <div class="container">
+            <footer class="d-flex flex-wrap justify-content-between align-items-center py-3 my-4 border-top">
+              <div class="col-md-4 d-flex align-items-center">
+                <span class="mb-3 mb-md-0 text-body-secondary">© 2024 Nora Flynn</span>
+              </div>
+              
+              <!-- TODO: Add icons and links to  socials -->
+              <ul class="nav col-md-4 justify-content-end list-unstyled d-flex">
+                <li class="ms-3"><a class="text-body-secondary" href="https://github.com/nora-s-flynn"><svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-github" viewBox="0 0 16 16">
+                  <path d="M8 0C3.58 0 0 3.58 0 8c0 3.54 2.29 6.53 5.47 7.59.4.07.55-.17.55-.38 0-.19-.01-.82-.01-1.49-2.01.37-2.53-.49-2.69-.94-.09-.23-.48-.94-.82-1.13-.28-.15-.68-.52-.01-.53.63-.01 1.08.58 1.23.82.72 1.21 1.87.87 2.33.66.07-.52.28-.87.51-1.07-1.78-.2-3.64-.89-3.64-3.95 0-.87.31-1.59.82-2.15-.08-.2-.36-1.02.08-2.12 0 0 .67-.21 2.2.82.64-.18 1.32-.27 2-.27.68 0 1.36.09 2 .27 1.53-1.04 2.2-.82 2.2-.82.44 1.1.16 1.92.08 2.12.51.56.82 1.27.82 2.15 0 3.07-1.87 3.75-3.65 3.95.29.25.54.73.54 1.48 0 1.07-.01 1.93-.01 2.2 0 .21.15.46.55.38A8.012 8.012 0 0 0 16 8c0-4.42-3.58-8-8-8z"/>
+                <use xlink:href="https://github.com/nora-s-flynn"></use></svg></a></li>
+    
+                <li class="ms-3"><a class="text-body-secondary" href="https://www.linkedin.com/in/nora-s-flynn/"><svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-linkedin" viewBox="0 0 16 16">
+                  <path d="M0 1.146C0 .513.526 0 1.175 0h13.65C15.474 0 16 .513 16 1.146v13.708c0 .633-.526 1.146-1.175 1.146H1.175C.526 16 0 15.487 0 14.854V1.146zm4.943 12.248V6.169H2.542v7.225h2.401zm-1.2-8.212c.837 0 1.358-.554 1.358-1.248-.015-.709-.52-1.248-1.342-1.248-.822 0-1.359.54-1.359 1.248 0 .694.521 1.248 1.327 1.248h.016zm4.908 8.212V9.359c0-.216.016-.432.08-.586.173-.431.568-.878 1.232-.878.869 0 1.216.662 1.216 1.634v3.865h2.401V9.25c0-2.22-1.184-3.252-2.764-3.252-1.274 0-1.845.7-2.165 1.193v.025h-.016a5.54 5.54 0 0 1 .016-.025V6.169h-2.4c.03.678 0 7.225 0 7.225h2.4z"/>
+                <use xlink:href="https://www.linkedin.com/in/nora-s-flynn/"></use></svg></a></li>
+                <li class="ms-3"><a class="text-body-secondary" href="#"><svg class="bi" width="24" height="24"><use xlink:href="#facebook"></use></svg></a></li>
+              </ul>
+            </footer>
+          </div>
+      </section>
+
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-C6RzsynM9kWDrMNeT87bh95OGNyZPhcTNXj1NW7RuBCsyN/o0jlpcV8Qyq46cDfL" crossorigin="anonymous"></script>
+    <script src="../assets/scripts/guild-calculator.js"></script>
+</body>
+</html>
