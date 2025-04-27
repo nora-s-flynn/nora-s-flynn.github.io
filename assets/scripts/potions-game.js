@@ -4,6 +4,7 @@ var levelLength = [3, 3, 3, 4, 4, 5, 5, 6, 6, 7, 7, 8, 8, 9, 9];
 var level = 0;
 var gamePattern = [];
 var userPattern = [];
+var winDebug = false;
 
 // keypress listener to start the game 
 $(document).keypress(function(event) {
@@ -18,11 +19,21 @@ $(document).keypress(function(event) {
     }
 });
 
+// click event listener for win button
+$("#win-btn").click(function() {
+    $(this).addClass("used-colour");
+    // set var to true
+    winDebug = true;
+    levelUp();
+});
+
 // click event listener for available colours
 $("#available-colours>div.row>.btn").click(function() {
 
     // use $(this) to force jQuery context, otherwise get undefined exception
     var userChosenColour = $(this).attr("id");
+    // add class to mark colour as used
+    $(this).addClass("used-colour");
 
     // get number of choices user has made so far
     itemsSoFar = userPattern.length;
@@ -41,8 +52,27 @@ $("#available-colours>div.row>.btn").click(function() {
 });
 
 function levelUp () {
-    if (level === 9) {
+    if (level === 9 || winDebug == true) {
+        // final level complete - game won
         $("#modalComplete").modal("show");
+
+        // code based on https://medium.com/@aleksej.gudkov/how-to-create-a-confetti-css-animation-a-step-by-step-guide-4ef79bf5ce2e
+        const confettiWrapper = document.querySelector('.confetti-wrapper');
+        // Generate confetti
+        for (let i = 0; i < 50; i++) {
+            const confetti = document.createElement('div');
+            confetti.classList.add('confetti-piece');
+            confetti.style.left = `${Math.random() * 100}%`;
+            confetti.style.setProperty('--fall-duration', `${Math.random() * 3 + 3}s`);
+            confetti.style.setProperty('--confetti-color', getRandomColor());
+            confetti.style.setProperty('--border-radius', `${Math.random() * 100}%`);
+            confettiWrapper.appendChild(confetti);
+        };
+        function getRandomColor() {
+            const colors = ['firebrick', 'orange', 'yellow', 'greenyellow', 'green', 'midnightblue', 'dodgerblue', 'purple', 'fuchsia'];
+            return colors[Math.floor(Math.random() * colors.length)];
+        };
+        
         startOver();
     } else {
         level++; // increment value of level
@@ -84,6 +114,8 @@ function checkAnswer(userPattern) {
     if (userPattern.every((val, index) => val === gamePattern[index])) {
         // if sequence is guessed correctly - javascript can't handle comparing arrays, hence the long expression
         if (level < 9) {
+            // remove used-colour class from child divs to start over before showing level up message
+            $("#available-colours>div>div").removeClass("used-colour");
             $("#modalCorrect").modal("show");
         };
         levelUp();
@@ -112,6 +144,8 @@ function checkAnswer(userPattern) {
                     // reset the current guess colours and the userPattern?
                     $("#guess-current svg").attr("fill", "currentColor");
                     $("#modalTryAgain").modal("show");
+                    // remove used-colour class from child divs to start over
+                    $("#available-colours>div>div").removeClass("used-colour");
                     userPattern = [];
                     break;
                 };
@@ -146,6 +180,7 @@ function startOver() {
     level = 0;
     userPattern = [];
     gamePattern = [];
+    winDebug = false;
     // remove .correct from all btns
     $("#guess-history div.btn").removeClass("correct");
     // reset visibility of available + current guess
@@ -153,6 +188,7 @@ function startOver() {
     for (i=0; i<=9; i++) {
         var nextColour = colorSequence[i];
         $("#available-colours>div.row>." + nextColour).addClass("visually-hidden");
+        $("#available-colours>div.row>." + nextColour).removeClass("used-colour");
         $("#guess-current>div.row>.btn").addClass("visually-hidden");
     };
     $("#guess-history .btn").attr("fill", "currentColor");

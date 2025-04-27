@@ -1,65 +1,163 @@
 /* ---------- FOR POTIONS GAME ---------- */
 .firebrick {
-background-color: firebrick;
+    background-color: firebrick;
 }
 
 .orange {
-background-color: orange;
+    background-color: orange;
 }
 
 .yellow {
-background-color: yellow;
+    background-color: yellow;
 }
 
 .greenyellow {
-background-color: greenyellow;
+    background-color: greenyellow;
 }
 
 .green {
-background-color: green;
+    background-color: green;
 }
 
 .midnightblue {
-background-color: midnightblue;
+    background-color: midnightblue;
 }
 
 .dodgerblue {
-background-color: dodgerblue;
+    background-color: dodgerblue;
 }
 
 .purple {
-background-color: purple;
+    background-color: purple;
 }
 
 .fuchsia {
-background-color: fuchsia;
+    background-color: fuchsia;
 }
 
 .btn {
-margin: 5px;
-display: inline-block;
-aspect-ratio: 1/1;
-width: 11%;
-max-width: 150px;
-border: 5px solid transparent;
-border-radius: 20%;
+    margin: 5px;
+    display: inline-block;
+    aspect-ratio: 1/1;
+    width: 11%;
+    max-width: 150px;
+    border: 5px solid transparent;
+    border-radius: 20%;
 }
 
 /* changing the fill for the current guess icons */
 .bi-droplet-half {
-fill: #343a40;
+    fill: #343a40;
 }
 
 /* class for potion bottle icons is potion-icon */
 .potion-icon {
-filter:drop-shadow(1px 1px 1px #343a40);
+    filter:drop-shadow(1px 1px 1px #343a40);
 }
 
 /* removing padding for the potion icon to maximise its size within the div */
 #guess-current>div.row>div.btn, #guess-history>div.row>div.btn {
-padding: 0;
+    padding: 0;
 }
 
 .correct {
-border-bottom: 5px solid olive;
+    border-bottom: 5px solid olive;
 }
+
+.used-colour {
+    border-width: 4px;
+    border-color: darkgray;
+}
+
+/* for confetti */
+.confetti-background {
+    margin: 0;
+    padding: 0;
+    overflow: hidden;
+    
+    /* background: #f0f0f0; */
+  }
+  .confetti-wrapper {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    pointer-events: none; /* Prevent interaction */
+    overflow: hidden;
+  }
+  @keyframes confetti-fall {
+    0% {
+      transform: translateY(-100%) rotate(0deg);
+      opacity: 1;
+    }
+    100% {
+      transform: translateY(100vh) rotate(360deg);
+      opacity: 0.8;
+    }
+  }
+  .confetti-piece {
+    position: absolute;
+    width: 10px;
+    height: 20px;
+    background: var(--confetti-color, red);
+    opacity: 0.9;
+    animation: confetti-fall var(--fall-duration, 4s) linear infinite;
+    border-radius: var(--border-radius, 0%);
+  }
+
+  /* Randomize confetti properties */
+  .confetti-piece:nth-child(1) {
+    left: 10%;
+    --confetti-color: firebrick;
+    --fall-duration: 3s;
+    --border-radius: 50%;
+  }
+  .confetti-piece:nth-child(2) {
+    left: 25%;
+    --confetti-color: orange;
+    --fall-duration: 5s;
+    --border-radius: 30%;
+  }
+  .confetti-piece:nth-child(3) {
+    left: 40%;
+    --confetti-color: yellow;
+    --fall-duration: 4.5s;
+    --border-radius: 10%;
+  }
+  .confetti-piece:nth-child(4) {
+    left: 60%;
+    --confetti-color: greenyellow;
+    --fall-duration: 3.5s;
+    --border-radius: 100%;
+  }
+  .confetti-piece:nth-child(5) {
+    left: 80%;
+    --confetti-color: green;
+    --fall-duration: 6s;
+    --border-radius: 20%;
+  }
+  .confetti-piece:nth-child(6) {
+    left: 80%;
+    --confetti-color: midnightblue;
+    --fall-duration: 6.5s;
+    --border-radius: 60%;
+  }
+  .confetti-piece:nth-child(7) {
+    left: 80%;
+    --confetti-color: dodgerblue;
+    --fall-duration: 5s;
+    --border-radius: 40%;
+  }
+  .confetti-piece:nth-child(8) {
+    left: 80%;
+    --confetti-color: fuchsia;
+    --fall-duration: 5.5s;
+    --border-radius: 70%;
+  }
+  .confetti-piece:nth-child(9) {
+    left: 80%;
+    --confetti-color: purple;
+    --fall-duration: 4s;
+    --border-radius: 80%;
+  }
