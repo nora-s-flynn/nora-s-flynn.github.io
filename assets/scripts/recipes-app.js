@@ -9,9 +9,9 @@ function addRecipePopup(input) {
   }
 
   // show popup and bind input value to title
-  $("#recipeAddModal").modal("show");
+  $("#recipeModal").modal("show");
   var text = inputBox.value;
-  const h1Modal = document.querySelector("#recipeAddModalTitle");
+  const h1Modal = document.querySelector("#recipeModalTitle");
   var sanitizeHTML = function (str) {
     var temp = document.createElement("div");
     temp.textContent = str;
