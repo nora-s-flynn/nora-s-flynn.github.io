@@ -1,9 +1,8 @@
 @import "~bootstrap/scss/_variables.scss";
 
 .completed {
-  text-decoration: line-through;
-  color: gray;
-  border: 1px solid gray;
+  border-color: var(--bs-primary-border-subtle) !important;
+  background-color: var(--bs-light-bg-subtle);
 }
 
 .recipe-card {
@@ -26,15 +25,12 @@
   text-align: left;
   text-indent: 3px;
   flex: 1;
-  min-width: 0; /* or some value */
+  min-width: 0;
   h6 {
     font-variant: small-caps;
   }
   ul li {
     display: none;
-    white-space: nowrap;
-    overflow: hidden;
-    text-overflow: ellipsis;
   }
   ul li:nth-child(1),
   ul li:nth-child(2),
@@ -46,7 +42,7 @@
 .recipe-instructions {
   text-align: left;
   flex: 1;
-  min-width: 0; /* or some value */
+  min-width: 0;
   p {
     white-space: nowrap;
     overflow: hidden;
