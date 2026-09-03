@@ -144,7 +144,7 @@
             id="input-button"
             type="button"
             class="btn btn-outline-info btn-sm"
-            onclick="return addRecipePopup(this);"
+            onclick="return showAddRecipePopup(this);"
           >
             Add - opens popup
           </button>
@@ -354,7 +354,7 @@
           <div class="modal-body">
             <div class="container-fluid">
               <div class="row mb-3">
-                <div class="col">
+                <div class="col" id="link-container">
                   <p>Paste recipe link here:</p>
                   <input
                     type="text"

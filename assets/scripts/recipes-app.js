@@ -1,7 +1,7 @@
 const inputBox = document.getElementById("input-box");
 const listContainer = document.getElementById("list-container");
 
-function addRecipePopup(input) {
+function showAddRecipePopup(input) {
   const task = inputBox.value.trim();
   if (!task) {
     alert("Please write a recipe name");
@@ -10,6 +10,7 @@ function addRecipePopup(input) {
 
   // show popup and bind input value to title
   $("#recipeModal").modal("show");
+  $("#link-container > p")[0].innerHTML = "Paste recipe link here";
   var text = inputBox.value;
   const h1Modal = document.querySelector("#recipeModalTitle");
   var sanitizeHTML = function (str) {
@@ -18,6 +19,8 @@ function addRecipePopup(input) {
     return temp.innerHTML;
   }; // (c) 2018 Chris Ferdinandi, MIT License, https://gomakethings.com
   h1Modal.innerText = sanitizeHTML(text);
+
+  // TODO: clear all element values in case a recipe was opened before
 
   inputBox.value = "";
 }
@@ -67,12 +70,13 @@ function showFullCard(input) {
       ? card.querySelector(".recipe-method > p").innerHTML
       : "";
 
-  // show modal and set elements to readonly
+  // show modal
   $("#recipeModal").modal("show");
 
-  // set title
+  // set title and change link label
   const recipeTitleModal = document.querySelector("#recipeModalTitle");
   recipeTitleModal.innerText = recipeTitle;
+  $("#link-container > p")[0].innerHTML = "Recipe link";
 
   // set ingredients - formatted to avoid unnecessary white spaces or newlines
   const ingredientsTextArea = document.getElementById(
