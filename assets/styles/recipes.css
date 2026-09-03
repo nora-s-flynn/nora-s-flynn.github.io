@@ -1,5 +1,46 @@
+@import "~bootstrap/scss/_variables.scss";
+
 .completed {
   text-decoration: line-through;
   color: gray;
   border: 1px solid gray;
+}
+
+.recipe-card {
+  border-style: solid;
+  border-radius: 25px;
+  border-width: 2px;
+  border-color: var(--bs-primary);
+  margin: 5px;
+  padding: 10px;
+  height: 95%;
+  overflow: auto;
+}
+
+.recipe-title {
+  font-size: larger;
+  margin-right: 5px;
+}
+
+.recipe-ingredients {
+  text-align: left;
+  text-indent: 3px;
+}
+
+/* anything for the li inside? */
+div.recipe-ingredients ul {
+  list-style-type: circle;
+}
+
+.recipe-instructions {
+  text-align: left;
+}
+
+/* p inside the recipe-instruction div */
+div.recipe-instructions p {
+  text-indent: 3px;
+}
+
+.recipe-tags {
+  /* TODO: add once tags implemented */
 }
