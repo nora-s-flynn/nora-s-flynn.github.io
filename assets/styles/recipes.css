@@ -25,22 +25,43 @@
 .recipe-ingredients {
   text-align: left;
   text-indent: 3px;
-}
-
-/* anything for the li inside? */
-div.recipe-ingredients ul {
-  list-style-type: circle;
+  flex: 1;
+  min-width: 0; /* or some value */
+  h6 {
+    font-variant: small-caps;
+  }
+  ul li {
+    display: none;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+  }
+  ul li:nth-child(1),
+  ul li:nth-child(2),
+  ul li:nth-child(3) {
+    display: list-item;
+  }
 }
 
 .recipe-instructions {
   text-align: left;
-}
-
-/* p inside the recipe-instruction div */
-div.recipe-instructions p {
-  text-indent: 3px;
+  flex: 1;
+  min-width: 0; /* or some value */
+  p {
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+  }
+  h6 {
+    text-indent: 3px;
+    font-variant: small-caps;
+  }
 }
 
 .recipe-tags {
+  h6 {
+    text-align: right;
+    font-variant: small-caps;
+  }
   /* TODO: add once tags implemented */
 }
