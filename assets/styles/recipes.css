@@ -1,5 +1,3 @@
-@import "~bootstrap/scss/_variables.scss";
-
 .completed {
   border-color: var(--bs-primary-border-subtle) !important;
   background-color: var(--bs-light-bg-subtle);
@@ -39,7 +37,7 @@
   }
 }
 
-.recipe-instructions {
+.recipe-method {
   text-align: left;
   flex: 1;
   min-width: 0;
@@ -52,6 +50,10 @@
     text-indent: 3px;
     font-variant: small-caps;
   }
+}
+
+.form-label {
+    padding: 2px;
 }
 
 .recipe-tags {

@@ -54,3 +54,68 @@ function addRecipe() {
     }
   });
 }
+
+function showFullCard(input) {
+  card = input.closest(".recipe-card");
+  // safely assign values for the elements
+  const recipeTitle = card.querySelector(".recipe-title").innerHTML;
+  const recipeIngredientList = card.querySelector(".recipe-ingredients > ul");
+  const ingredientsListClean =
+    recipeIngredientList != null ? parseIngredients(recipeIngredientList) : "";
+  const recipeMethod =
+    card.querySelector(".recipe-method > p") != null
+      ? card.querySelector(".recipe-method > p").innerHTML
+      : "";
+
+  // show modal and set elements to readonly
+  $("#recipeModal").modal("show");
+
+  // set title
+  const recipeTitleModal = document.querySelector("#recipeModalTitle");
+  recipeTitleModal.innerText = recipeTitle;
+
+  // set ingredients - formatted to avoid unnecessary white spaces or newlines
+  const ingredientsTextArea = document.getElementById(
+    "recipe-ingredients-area"
+  );
+  ingredientsText = "";
+  for (var j = 0; j < ingredientsListClean.length; j++) {
+    ingredientsText += "\r\n" + " - " + ingredientsListClean[j];
+  }
+  ingredientsTextArea.value = ingredientsText.trim();
+
+  // set method - assumes one paragraph with multiple <br>s
+  const methodTextArea = document.getElementById("recipe-method");
+  methodTextArea.value = recipeMethod
+    .replace(/  +/g, " ")
+    .split("<br>")
+    .join("\r\n")
+    .trim();
+
+  // set readonly for input elements
+  var inputEls = document.querySelectorAll(
+    "#recipeModal .form-control, #recipeModal .input-item"
+  );
+  for (var i = 0; i < inputEls.length; i++) {
+    inputEls[i].setAttribute("readonly", true);
+  }
+
+  // set Save button to disabled
+  document
+    .querySelector("#recipeModal .btn-primary")
+    .setAttribute("disabled", true);
+}
+
+function parseIngredients(recipeIngredientList) {
+  // take the ul element containing the ingredients and parse into an array to be used for constructing the card
+  var ingredientsArray = [];
+  const recipeIngredients = recipeIngredientList.childNodes;
+  for (const itm of recipeIngredients) {
+    if (itm.nodeType != 1) {
+      continue;
+      // type 1 is li and the innerHTML of that contains the actual value we want
+    }
+    ingredientsArray.push(itm.innerHTML);
+  }
+  return ingredientsArray;
+}
