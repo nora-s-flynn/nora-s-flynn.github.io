@@ -20,7 +20,7 @@ function showAddRecipePopup(input) {
   }; // (c) 2018 Chris Ferdinandi, MIT License, https://gomakethings.com
   h1Modal.innerText = sanitizeHTML(text);
 
-  // TODO: clear all element values in case a recipe was opened before
+  // TODO: clear all element values in case a recipe was opened before - and set to not readonly + enable button
 
   inputBox.value = "";
 }
