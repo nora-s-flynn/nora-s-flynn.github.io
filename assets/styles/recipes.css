@@ -52,6 +52,15 @@
   }
 }
 
+.noresize {
+    resize: none;
+}
+
+.resizeable {
+    resize: vertical;
+    overflow: scroll;
+}
+
 .form-label {
     padding: 2px;
 }
@@ -62,4 +71,8 @@
     font-variant: small-caps;
   }
   /* TODO: add once tags implemented */
+}
+
+.recipe-link {
+    display: none;
 }

@@ -20,7 +20,23 @@ function showAddRecipePopup(input) {
   }; // (c) 2018 Chris Ferdinandi, MIT License, https://gomakethings.com
   h1Modal.innerText = sanitizeHTML(text);
 
-  // TODO: clear all element values in case a recipe was opened before - and set to not readonly + enable button
+  // clears any values assigned to the elements from previous actions
+  const modalInputAreas = [
+    document.getElementById("recipe-ingredients-area"),
+    document.getElementById("recipe-method-area"),
+    document.getElementById("recipe-link"),
+    document.getElementById("recipe-tags"),
+  ];
+
+  for (var i = 0; i < modalInputAreas.length; i++) {
+    modalInputAreas[i].value = "";
+    modalInputAreas[i].removeAttribute("readonly");
+  }
+
+  // Save progress button, currently does nothing
+  document
+    .querySelector("#recipeModal .btn-primary")
+    .removeAttribute("disabled");
 
   inputBox.value = "";
 }
@@ -69,13 +85,21 @@ function showFullCard(input) {
     card.querySelector(".recipe-method > p") != null
       ? card.querySelector(".recipe-method > p").innerHTML
       : "";
+  const recipeLink =
+    card.querySelector(".recipe-link > span") != null
+      ? card.querySelector(".recipe-link > span").innerHTML
+      : "";
+  const recipeTags = 
+      card.querySelector(".recipe-tags > span") != null
+      ? card.querySelector(".recipe-tags > span").innerHTML
+      : "";
 
   // show modal
   $("#recipeModal").modal("show");
 
   // set title and change link label
-  const recipeTitleModal = document.querySelector("#recipeModalTitle");
-  recipeTitleModal.innerText = recipeTitle;
+  const recipeModalTitle = document.querySelector("#recipeModalTitle");
+  recipeModalTitle.innerText = recipeTitle;
   $("#link-container > p")[0].innerHTML = "Recipe link";
 
   // set ingredients - formatted to avoid unnecessary white spaces or newlines
@@ -89,12 +113,18 @@ function showFullCard(input) {
   ingredientsTextArea.value = ingredientsText.trim();
 
   // set method - assumes one paragraph with multiple <br>s
-  const methodTextArea = document.getElementById("recipe-method");
+  const methodTextArea = document.getElementById("recipe-method-area");
   methodTextArea.value = recipeMethod
     .replace(/  +/g, " ")
     .split("<br>")
     .join("\r\n")
     .trim();
+
+  // set URL and tags
+  const linkInput = document.getElementById("recipe-link");
+  linkInput.value = recipeLink;
+  const tagsInput = document.getElementById("recipe-tags");
+  tagsInput.value = recipeTags;
 
   // set readonly for input elements
   var inputEls = document.querySelectorAll(
