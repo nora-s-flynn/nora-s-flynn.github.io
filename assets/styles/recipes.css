@@ -53,26 +53,118 @@
 }
 
 .noresize {
-    resize: none;
+  resize: none;
 }
 
 .resizeable {
-    resize: vertical;
-    overflow: scroll;
+  resize: vertical;
+  overflow: scroll;
 }
 
 .form-label {
-    padding: 2px;
-}
-
-.recipe-tags {
-  h6 {
-    text-align: right;
-    font-variant: small-caps;
-  }
-  /* TODO: add once tags implemented */
+  padding: 2px;
 }
 
 .recipe-link {
-    display: none;
+  display: none;
+}
+/* links are hidden on recipe cards to preserve space */
+
+.recipe-tags {
+  display: inline-flex;
+  flex-direction: row;
+  align-items: baseline;
+  h6 {
+    font-variant: small-caps;
+  }
+}
+
+.custom-select {
+  color: var(--bs-primary-border-subtle) !important;
+}
+
+/* tags section; functionally they categorise recipes */
+/* by meal purpose */
+.breakfast {
+  color: burlywood;
+  padding-left: 10px;
+  display: inline-block;
+}
+.mains {
+  color: coral;
+  padding-left: 10px;
+  display: inline-block;
+}
+.salads {
+  color: mediumseagreen;
+  padding-left: 10px;
+  display: inline-block;
+}
+.sides {
+  color: cornflowerblue;
+  padding-left: 10px;
+  display: inline-block;
+}
+.bread {
+  color: darkgoldenrod;
+  padding-left: 10px;
+  display: inline-block;
+}
+.desserts {
+    color: darkorchid;
+    padding-left: 10px;
+    display: inline-block;
+}
+
+/* by main protein */
+.chicken {
+  color: goldenrod;
+  padding-left: 10px;
+  display: none;
+}
+.pork {
+  color: lightpink;
+  padding-left: 10px;
+  display: none;
+}
+.beef {
+  color: indianred;
+  padding-left: 10px;
+  display: none;
+}
+.tofu {
+  color: antiquewhite;
+  padding-left: 10px;
+  display: none;
+}
+.vg {
+  color: lightgreen;
+  padding-left: 10px;
+  display: none;
+}
+
+/* other categories - one recipe can have multiple of these */
+.sriracha,
+.gochugaru,
+.gochujang,
+.chili-crisp,
+.harissa,
+.miso,
+.sumac,
+.sundried {
+  display: none;
+  padding-left: 10px;
+}
+
+.slow-cooker,
+.air-fryer,
+.rice-cooker,
+.tagine {
+  display: none;
+  padding-left: 10px;
+}
+.entertaining,
+.bg-recipe {
+  display: none;
+  padding-left: 10px;
 }

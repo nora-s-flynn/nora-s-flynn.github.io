@@ -20,12 +20,16 @@ function showAddRecipePopup(input) {
   }; // (c) 2018 Chris Ferdinandi, MIT License, https://gomakethings.com
   h1Modal.innerText = sanitizeHTML(text);
 
+  // toggle tags
+  $("#recipe-existing-tags").addClass("d-none");
+  $("#recipe-new-tags").removeClass("d-none");
+
   // clears any values assigned to the elements from previous actions
   const modalInputAreas = [
     document.getElementById("recipe-ingredients-area"),
     document.getElementById("recipe-method-area"),
     document.getElementById("recipe-link"),
-    document.getElementById("recipe-tags"),
+    document.getElementById("new-tags-input"),
   ];
 
   for (var i = 0; i < modalInputAreas.length; i++) {
@@ -42,6 +46,7 @@ function showAddRecipePopup(input) {
 }
 
 function addRecipe() {
+  // TODO: implement actually adding recipes
   const li = document.createElement("li");
 
   li.innerHTML = `
@@ -75,6 +80,7 @@ function addRecipe() {
 }
 
 function showFullCard(input) {
+  // Shows existing recipe in full card
   card = input.closest(".recipe-card");
   // safely assign values for the elements
   const recipeTitle = card.querySelector(".recipe-title").innerHTML;
@@ -89,9 +95,9 @@ function showFullCard(input) {
     card.querySelector(".recipe-link > span") != null
       ? card.querySelector(".recipe-link > span").innerHTML
       : "";
-  const recipeTags = 
-      card.querySelector(".recipe-tags > span") != null
-      ? card.querySelector(".recipe-tags > span").innerHTML
+  const recipeTags =
+    card.querySelectorAll(".recipe-tags > span").length != 0
+      ? card.querySelectorAll(".recipe-tags > span")
       : "";
 
   // show modal
@@ -120,11 +126,26 @@ function showFullCard(input) {
     .join("\r\n")
     .trim();
 
-  // set URL and tags
+  // set URL
   const linkInput = document.getElementById("recipe-link");
   linkInput.value = recipeLink;
-  const tagsInput = document.getElementById("recipe-tags");
-  tagsInput.value = recipeTags;
+
+  // set tags: toggle visibility, parse and add to card
+  const tagsInput = document.getElementById("recipe-existing-tags");
+  tagsInput.innerHTML = "";
+  tagsInput.classList.remove("d-none");
+  $("#recipe-new-tags").addClass("d-none");
+  const [tagsListClean, tagsText] = parseTags(recipeTags);
+  const divTags = document.createElement("div");
+  var innerTags = "";
+  for (var i = 0; i < tagsListClean.length; i++) {
+    innerTags += `
+    <span class="${tagsListClean[i]}" style="display: inline-block !important;">${tagsText[i]}</span>
+    `;
+  }
+  divTags.innerHTML = "";
+  divTags.innerHTML = innerTags.trim();
+  tagsInput.appendChild(divTags);
 
   // set readonly for input elements
   var inputEls = document.querySelectorAll(
@@ -152,4 +173,14 @@ function parseIngredients(recipeIngredientList) {
     ingredientsArray.push(itm.innerHTML);
   }
   return ingredientsArray;
+}
+
+function parseTags(tagsElements) {
+  var tagsClasses = [];
+  var tagsValues = [];
+  for (const el of tagsElements) {
+    tagsClasses.push(el.attributes.class.value);
+    tagsValues.push(el.innerText);
+  }
+  return [tagsClasses, tagsValues];
 }
