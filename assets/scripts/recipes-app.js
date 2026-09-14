@@ -1,5 +1,6 @@
 const inputBox = document.getElementById("input-box");
 const listContainer = document.getElementById("list-container");
+// TODO: avoid setting innerHTML
 
 function showAddRecipePopup(input) {
   const task = inputBox.value.trim();
@@ -20,9 +21,11 @@ function showAddRecipePopup(input) {
   }; // (c) 2018 Chris Ferdinandi, MIT License, https://gomakethings.com
   h1Modal.innerText = sanitizeHTML(text);
 
-  // toggle tags
+  // set tags and ingredients visibility
   $("#recipe-existing-tags").addClass("d-none");
   $("#recipe-new-tags").removeClass("d-none");
+  $("#existing-ingredients-list").addClass("d-none");
+  $("#ingredients-input-area").removeClass("d-none");
 
   // clears any values assigned to the elements from previous actions
   const modalInputAreas = [
@@ -47,6 +50,18 @@ function showAddRecipePopup(input) {
 
 function addRecipe() {
   // TODO: implement actually adding recipes
+  //     // take parsed list of ingredients and build ul for full recipe card
+  //   const tagsUnorderedList = document.getElementById("existing-tags-list");
+  //   tagsUnorderedList.replaceChildren();
+  //   console.log("DEBUG");
+  //   console.log(tagsUnorderedList);
+  //   for (var j = 0; j < ingredientsListClean.length; j++) {
+  //     const ingredientsListItem = document.createElement("li");
+  //     console.log(ingredientsListClean[j]);
+  //     ingredientsListItem.appendChild(document.createTextNode(ingredientsListClean[j]));
+  //     tagsUnorderedList.appendChild(ingredientsListItem);
+  //     console.log(tagsUnorderedList);
+  //   }
   const li = document.createElement("li");
 
   li.innerHTML = `
@@ -108,15 +123,8 @@ function showFullCard(input) {
   recipeModalTitle.innerText = recipeTitle;
   $("#link-container > p")[0].innerHTML = "Recipe link";
 
-  // set ingredients - formatted to avoid unnecessary white spaces or newlines
-  const ingredientsTextArea = document.getElementById(
-    "recipe-ingredients-area"
-  );
-  ingredientsText = "";
-  for (var j = 0; j < ingredientsListClean.length; j++) {
-    ingredientsText += "\r\n" + " - " + ingredientsListClean[j];
-  }
-  ingredientsTextArea.value = ingredientsText.trim();
+  // set ingredients
+  constructRecipeIngredients(ingredientsListClean);
 
   // set method - assumes one paragraph with multiple <br>s
   const methodTextArea = document.getElementById("recipe-method-area");
@@ -173,6 +181,22 @@ function parseIngredients(recipeIngredientList) {
     ingredientsArray.push(itm.innerHTML);
   }
   return ingredientsArray;
+}
+
+function constructRecipeIngredients(ingredientsListClean) {
+  // set visibility
+  $("#existing-ingredients-list").removeClass("d-none");
+  $("#ingredients-input-area").addClass("d-none");
+  // reset ul before adding the ingredients
+  const tagsUnorderedList = document.getElementById("ingredients-ul");
+  tagsUnorderedList.replaceChildren();
+  for (var j = 0; j < ingredientsListClean.length; j++) {
+    const ingredientsListItem = document.createElement("li");
+    ingredientsListItem.appendChild(
+      document.createTextNode(ingredientsListClean[j])
+    );
+    tagsUnorderedList.appendChild(ingredientsListItem);
+  }
 }
 
 function parseTags(tagsElements) {

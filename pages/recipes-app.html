@@ -245,7 +245,7 @@
                       <li>Truncated further ingredients</li>
                       <li>More Onions</li>
                       <li>That's a lot of onions</li>
-                      <li>How many ingerients does this have</li>
+                      <li>How many ingredients does this have</li>
                       <li>More??</li>
                       <li>You're kidding</li>
                       <li>I'm never cooking this</li>
@@ -442,14 +442,20 @@
               </div>
               <div class="row mb-3">
                 <div class="col">
-                  <div class="input-group">
-                    <span class="input-group-text">Ingredients</span>
-                    <textarea
-                      class="form-control h-50"
-                      rows="6"
-                      aria-label="Ingredients input"
-                      id="recipe-ingredients-area"
-                    ></textarea>
+                  <div id="ingredients-input-area">
+                    <div class="input-group">
+                      <span class="input-group-text">Ingredients</span>
+                      <textarea
+                        class="form-control h-50"
+                        rows="6"
+                        aria-label="Ingredients input"
+                        id="recipe-ingredients-area"
+                      ></textarea>
+                    </div>
+                  </div>
+                  <div class="d-none" id="existing-ingredients-list">
+                    <h6>Ingredients:</h6>
+                    <ul id="ingredients-ul"></ul>
                   </div>
                 </div>
               </div>
@@ -481,11 +487,7 @@
                     />
                   </div>
                   <div class="d-none" id="recipe-existing-tags">
-                    <span
-                      class="d-none"
-                      aria-label="Existing tags placeholder text"
-                      >Existing tags</span
-                    >
+                    <ul id="existing-tags-list"></ul>
                   </div>
                 </div>
               </div>
