@@ -137,7 +137,7 @@
                 aria-label="Meal category select"
                 id="mealCatSelect"
               >
-                <option selected>Meal category</option>
+                <option value="all" selected>Meal category - show all</option>
                 <option value="breakfast">Breakfast</option>
                 <option value="mains">Mains</option>
                 <option value="salads">Salads</option>
@@ -152,7 +152,7 @@
                 aria-label="Main protein select"
                 id="mainProteinSelect"
               >
-                <option selected>Main protein</option>
+                <option value="all" selected>Main protein - show all</option>
                 <option value="beef">Beef</option>
                 <option value="lamb">Lamb</option>
                 <option value="pork">Pork</option>
@@ -171,12 +171,13 @@
               multiple
               aria-label="Additional options multi-select"
               id="otherOptionsMS"
-              size="3"
+              size="4"
             >
-              <option value="entertaining">Bulgarian recipes</option>
-              <option value="bg-recipe">Entertaining guests</option>
+              <option value="bg-recipe">Bulgarian recipes</option>
+              <option value="entertaining">Entertaining guests</option>
               <optgroup label="Ingredients">
-                <option value="chili-crisp">Chilli crisp</option>
+                <option value="boursin">Boursin</option>
+                <option value="chilli-crisp">Chilli crisp</option>
                 <option value="harissa">Harissa</option>
                 <option value="gochugaru">Gochugaru</option>
                 <option value="gochujang">Gochujang</option>
@@ -212,7 +213,7 @@
           </h2>
           <ul id="list-container"></ul>
 
-          <div class="container">
+          <div class="container" id="all-recipes">
             <div class="row row-cols-1 row-cols-sm-2 row-cols-md-3">
               <div class="col">
                 <div class="recipe-card">
@@ -306,6 +307,7 @@
                     <h6>Tags:</h6>
                     <span class="breakfast">Breakfast food</span>
                     <span class="vg">Veggie</span>
+                    <span class="chilli-crisp">Chilli crisp</span>
                   </div>
                 </div>
               </div>
@@ -585,18 +587,6 @@
       );
       var popoverList = popoverTriggerList.map(function (popoverTriggerEl) {
         return new bootstrap.Popover(popoverTriggerEl);
-      });
-    </script>
-    <script>
-      $("#mainProteinSelect, #mealCatSelect").on("change", function (e) {
-        console.log(this.options[this.selectedIndex].text, this.value);
-      });
-      $("#otherOptionsMS").on("change", function (e) {
-        console.log(
-          $("#otherOptionsMS option:selected")
-            .text()
-            .match(/[A-Z][a-z]+/g)
-        );
       });
     </script>
   </body>

@@ -1,6 +1,16 @@
 const inputBox = document.getElementById("input-box");
 const listContainer = document.getElementById("list-container");
-// TODO: avoid setting innerHTML
+
+// dropdowns
+$("#mainProteinSelect").on("change", function () {
+  filterDropDown(this.value);
+});
+$("#mealCatSelect").on("change", function () {
+  filterDropDown(this.value);
+});
+$("#otherOptionsMS").on("change", function () {
+  filterMultiSelect($("#otherOptionsMS").val() || []);
+});
 
 function showAddRecipePopup(input) {
   const task = inputBox.value.trim();
@@ -10,7 +20,7 @@ function showAddRecipePopup(input) {
   }
 
   // show popup and bind input value to title
-  $("#recipeModal").modal("show");
+  $("#recipe-modal").modal("show");
   $("#link-container > p")[0].innerHTML = "Paste recipe link here";
   var text = inputBox.value;
   const h1Modal = document.querySelector("#recipeModalTitle");
@@ -207,4 +217,45 @@ function parseTags(tagsElements) {
     tagsValues.push(el.innerText);
   }
   return [tagsClasses, tagsValues];
+}
+
+function filterDropDown(value) {
+  const recipeContainer = document.getElementById("all-recipes");
+  const unfilteredCards = document.querySelectorAll(".recipe-card");
+  for (var i = 0; i < unfilteredCards.length; i++) {
+    unfilteredCards[i].classList.remove("d-none");
+  }
+  if (value == "all") {
+    return;
+  }
+  for (i = 0; i < unfilteredCards.length; i++) {
+    if (unfilteredCards[i].querySelector(`.${value}`) == null) {
+      unfilteredCards[i].classList.add("d-none");
+    }
+  }
+  return;
+}
+
+function filterMultiSelect(values) {
+  const recipeContainer = document.getElementById("all-recipes");
+  const unfilteredCards = document.querySelectorAll(".recipe-card");
+  for (var i = 0; i < unfilteredCards.length; i++) {
+    unfilteredCards[i].classList.remove("d-none");
+  }
+  if (values == null) {
+    return;
+  }
+  var targetTags = 0;
+  for (i = 0; i < unfilteredCards.length; i++) {
+    for (var j = 0; j < values.length; j++) {
+      targetTags = 0;
+      if (unfilteredCards[i].querySelector(`.${values[j]}`) != null) {
+        targetTags++;
+      }
+      if (targetTags == 0) {
+        unfilteredCards[i].classList.add("d-none");
+      }
+    }
+  }
+  return;
 }

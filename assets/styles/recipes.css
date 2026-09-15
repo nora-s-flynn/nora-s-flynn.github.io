@@ -1,6 +1,7 @@
 .completed {
   border-color: var(--bs-primary-border-subtle) !important;
-  background-color: var(--bs-light-bg-subtle);
+  background-color: var(--bs-gray-800) !important;
+  border-width: 3px !important;
 }
 
 .recipe-card {
@@ -80,7 +81,13 @@
 }
 
 .custom-select {
-  color: var(--bs-primary-border-subtle) !important;
+  color: var(--bs-primary-text-emphasis) !important;
+}
+
+#existing-ingredients-list {
+    overflow: auto;
+    max-height: 20vh;
+    ul {list-style-type: '- ';}
 }
 
 /* tags section; functionally they categorise recipes */
@@ -147,11 +154,12 @@
 .sriracha,
 .gochugaru,
 .gochujang,
-.chili-crisp,
+.chilli-crisp,
 .harissa,
 .miso,
 .sumac,
-.sundried {
+.sundried,
+.boursin {
   display: none;
   padding-left: 10px;
 }
@@ -163,14 +171,9 @@
   display: none;
   padding-left: 10px;
 }
+
 .entertaining,
 .bg-recipe {
   display: none;
   padding-left: 10px;
-}
-
-#existing-ingredients-list {
-    overflow: auto;
-    max-height: 20vh;
-    ul {list-style-type: '- ';}
 }
