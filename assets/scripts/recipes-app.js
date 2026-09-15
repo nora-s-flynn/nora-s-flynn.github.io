@@ -50,9 +50,12 @@ function showAddRecipePopup(input) {
     modalInputAreas[i].removeAttribute("readonly");
   }
 
+  $("#recipeTriedChk").prop("disabled", false);
+  $("#recipeTriedChk").prop("checked", false);
+
   // Save progress button, currently does nothing
   document
-    .querySelector("#recipeModal .btn-primary")
+    .querySelector("#recipe-modal .btn-primary")
     .removeAttribute("disabled");
 
   inputBox.value = "";
@@ -126,7 +129,7 @@ function showFullCard(input) {
       : "";
 
   // show modal
-  $("#recipeModal").modal("show");
+  $("#recipe-modal").modal("show");
 
   // set title and change link label
   const recipeModalTitle = document.querySelector("#recipeModalTitle");
@@ -165,9 +168,18 @@ function showFullCard(input) {
   divTags.innerHTML = innerTags.trim();
   tagsInput.appendChild(divTags);
 
+  // set the checkbox for reciped tried
+  $("#recipeTriedChk").prop("disabled", true);
+  if (card.classList.contains("tried")) {
+    console.log("tried");
+    $("#recipeTriedChk").prop("checked", true);
+  } else {
+    $("#recipeTriedChk").prop("checked", false);
+  }
+
   // set readonly for input elements
   var inputEls = document.querySelectorAll(
-    "#recipeModal .form-control, #recipeModal .input-item"
+    "#recipe-modal .form-control, #recipe-modal .input-item"
   );
   for (var i = 0; i < inputEls.length; i++) {
     inputEls[i].setAttribute("readonly", true);
@@ -175,7 +187,7 @@ function showFullCard(input) {
 
   // set Save button to disabled
   document
-    .querySelector("#recipeModal .btn-primary")
+    .querySelector("#recipe-modal .btn-primary")
     .setAttribute("disabled", true);
 }
 
@@ -220,7 +232,6 @@ function parseTags(tagsElements) {
 }
 
 function filterDropDown(value) {
-  const recipeContainer = document.getElementById("all-recipes");
   const unfilteredCards = document.querySelectorAll(".recipe-card");
   for (var i = 0; i < unfilteredCards.length; i++) {
     unfilteredCards[i].classList.remove("d-none");
@@ -237,7 +248,6 @@ function filterDropDown(value) {
 }
 
 function filterMultiSelect(values) {
-  const recipeContainer = document.getElementById("all-recipes");
   const unfilteredCards = document.querySelectorAll(".recipe-card");
   for (var i = 0; i < unfilteredCards.length; i++) {
     unfilteredCards[i].classList.remove("d-none");
