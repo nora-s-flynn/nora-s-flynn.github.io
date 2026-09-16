@@ -1,0 +1,6 @@
+{"data": {"recipesPublic": [
+    {"name": "Recipe Example 5", "ingredients": ["1 cup tomatoes", "3tbsp salt"], "method": "A paragraph telling you to chop your veggies.<br />Simmer on the hob for 2 hours.<br />Lorem ipsum dolor sit amet, consectetur adipiscing elit", "tags": ["mains", "sumac"], "URL": "https://google.com", "tried": false},
+    {"name": "Recipe Example 6", "ingredients": ["Salt flakes", "Chocolate", "Ice cream"], "method": "Scoop ice cream into bowls.<br />Top with melted chocolate.<br />Sprinkle with salt flakes.", "tags": ["desserts", "entertaining"], "URL": null, "tried": false},
+    {"name": "Recipe Example 7", "ingredients": [], "method": "", "tags": [], "URL": "", "tried": true},
+    {"name": "Recipe Example 8", "ingredients": [], "method": "", "tags": [], "URL": "", "tried": true}
+]}}

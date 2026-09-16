@@ -12,6 +12,11 @@ $("#otherOptionsMS").on("change", function () {
   filterMultiSelect($("#otherOptionsMS").val() || []);
 });
 
+// load recipes
+document.addEventListener("DOMContentLoaded", () => {
+  loadRecipes();
+});
+
 function showAddRecipePopup(input) {
   const task = inputBox.value.trim();
   if (!task) {
@@ -171,7 +176,6 @@ function showFullCard(input) {
   // set the checkbox for reciped tried
   $("#recipeTriedChk").prop("disabled", true);
   if (card.classList.contains("tried")) {
-    console.log("tried");
     $("#recipeTriedChk").prop("checked", true);
   } else {
     $("#recipeTriedChk").prop("checked", false);
@@ -179,7 +183,7 @@ function showFullCard(input) {
 
   // set readonly for input elements
   var inputEls = document.querySelectorAll(
-    "#recipe-modal .form-control, #recipe-modal .input-item"
+    "#recipe-modal .form-control, #recipe-modal .input-item",
   );
   for (var i = 0; i < inputEls.length; i++) {
     inputEls[i].setAttribute("readonly", true);
@@ -215,7 +219,7 @@ function constructRecipeIngredients(ingredientsListClean) {
   for (var j = 0; j < ingredientsListClean.length; j++) {
     const ingredientsListItem = document.createElement("li");
     ingredientsListItem.appendChild(
-      document.createTextNode(ingredientsListClean[j])
+      document.createTextNode(ingredientsListClean[j]),
     );
     tagsUnorderedList.appendChild(ingredientsListItem);
   }
@@ -268,4 +272,31 @@ function filterMultiSelect(values) {
     }
   }
   return;
+}
+
+function loadRecipes() {
+  let recipesObject;
+  if (
+    location.hostname === "localhost" ||
+    location.hostname === "127.0.0.1" ||
+    location.hostname === ""
+  ) {
+    fetch("../assets/static/local-recipes.json")
+      .then((data) => data.json())
+      .then((json) => {
+        recipesObject = json.data;
+        setRecipesHTML(recipesObject.recipesLocal);
+      });
+  } else {
+    fetch("../assets/static/public-recipes.json")
+      .then((data) => data.json())
+      .then((json) => {
+        recipesObject = json.data;
+        setRecipesHTML(recipesObject.recipesLocal);
+      });
+  }
+}
+
+function setRecipesHTML(recipesObject) {
+  console.log(recipesObject[0]);
 }
