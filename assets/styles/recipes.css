@@ -9,10 +9,10 @@
   border-radius: 25px;
   border-width: 2px;
   border-color: var(--bs-primary);
-  margin: 5px;
-  padding: 10px;
   height: 95%;
   overflow: auto;
+  padding: 25px;
+  min-height: 200px;
 }
 
 .recipe-title {
@@ -176,4 +176,20 @@
 .bg-recipe {
   display: none;
   padding-left: 10px;
+}
+
+.row {
+  margin-top: 20px;
+}
+
+.col-lg-4 {
+  padding: 10px;
+}
+
+.inside-col {
+  background: #aaa;
+  color: #fff;
+  text-align: center;
+  padding: 100px 50px;
+  min-height: 200px;
 }

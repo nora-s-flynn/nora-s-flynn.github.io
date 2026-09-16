@@ -1,5 +1,4 @@
 const inputBox = document.getElementById("input-box");
-const listContainer = document.getElementById("list-container");
 
 // dropdowns
 $("#mainProteinSelect").on("change", function () {
@@ -236,7 +235,7 @@ function parseTags(tagsElements) {
 }
 
 function filterDropDown(value) {
-  const unfilteredCards = document.querySelectorAll(".recipe-card");
+  const unfilteredCards = document.querySelectorAll(".recipe-outer-container");
   for (var i = 0; i < unfilteredCards.length; i++) {
     unfilteredCards[i].classList.remove("d-none");
   }
@@ -252,7 +251,7 @@ function filterDropDown(value) {
 }
 
 function filterMultiSelect(values) {
-  const unfilteredCards = document.querySelectorAll(".recipe-card");
+  const unfilteredCards = document.querySelectorAll(".recipe-outer-container");
   for (var i = 0; i < unfilteredCards.length; i++) {
     unfilteredCards[i].classList.remove("d-none");
   }
