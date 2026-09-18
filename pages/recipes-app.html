@@ -94,9 +94,6 @@
                 >
               </li>
             </ul>
-            <!-- <div class="d-lg-flex col-lg-3 justify-content-lg-end">
-                <button class="btn btn-primary">Button</button>
-                </div> -->
           </div>
         </div>
       </nav>
@@ -123,53 +120,58 @@
 
     <section id="filters">
       <div class="px-4 pt-3 mb-4 text-center">
-        <div class="px-2"><h2>Choose filters:</h2></div>
+        <div class="px-2">
+          <h2>Choose filters:</h2>
+          <div class="text-muted">
+            Dropdowns for category/main protein, multi-select for other
+            ingredients
+          </div>
+        </div>
       </div>
       <div class="container">
-        <div class="row">
-          <div class="col-sm"></div>
-          <div class="col-sm">
-            <div class="pb-2">
-              <select
-                class="form-select form-select-sm custom-select"
-                aria-label="Meal category select"
-                id="mealCatSelect"
-              >
-                <option value="all" selected>Meal category - show all</option>
-                <option value="breakfast">Breakfast</option>
-                <option value="mains">Mains</option>
-                <option value="salads">Salads</option>
-                <option value="sides">Sides</option>
-                <option value="bread">Doughs</option>
-                <option value="desserts">Desserts</option>
-              </select>
-            </div>
-            <div class="pb-2">
-              <select
-                class="form-select form-select-sm custom-select"
-                aria-label="Main protein select"
-                id="mainProteinSelect"
-              >
-                <option value="all" selected>Main protein - show all</option>
-                <option value="beef">Beef</option>
-                <option value="lamb">Lamb</option>
-                <option value="pork">Pork</option>
-                <option value="tofu">Tofu</option>
-                <option value="vg">Other vegan/vegetarian</option>
-              </select>
+        <div
+          class="container d-block d-md-grid flex-wrap mb-3 filter-container text-end"
+        >
+          <div>
+            <div class="grid-container-element">
+              <div class="pb-2">
+                <select
+                  class="form-select form-select-sm custom-select"
+                  aria-label="Meal category select"
+                  id="mealCatSelect"
+                >
+                  <option value="all" selected>Meal category - show all</option>
+                  <option value="breakfast">Breakfast</option>
+                  <option value="mains">Mains</option>
+                  <option value="salads">Salads</option>
+                  <option value="sides">Sides</option>
+                  <option value="bread">Doughs</option>
+                  <option value="desserts">Desserts</option>
+                </select>
+              </div>
+              <div class="pb-2">
+                <select
+                  class="form-select form-select-sm custom-select"
+                  aria-label="Main protein select"
+                  id="mainProteinSelect"
+                >
+                  <option value="all" selected>Main protein - show all</option>
+                  <option value="beef">Beef</option>
+                  <option value="lamb">Lamb</option>
+                  <option value="pork">Pork</option>
+                  <option value="tofu">Tofu</option>
+                  <option value="vg">Other vegan/vegetarian</option>
+                </select>
+              </div>
             </div>
           </div>
-
-          <div class="col-sm">
-            <div class="pb-2">
-              Use this multi-select dropdown for other filters
-            </div>
+          <div>
             <select
               class="form-select form-select-sm custom-select"
               multiple
               aria-label="Additional options multi-select"
               id="otherOptionsMS"
-              size="4"
+              size="3"
             >
               <option value="bg-recipe">Bulgarian recipes</option>
               <option value="entertaining">Entertaining guests</option>
