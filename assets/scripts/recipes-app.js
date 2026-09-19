@@ -16,6 +16,25 @@ document.addEventListener("DOMContentLoaded", () => {
   loadRecipes();
 });
 
+class Recipe {
+  constructor(title, url, ingredients, method, tags, tried) {
+    this.title = title;
+    this.url = url;
+    this.ingredients = ingredients;
+    this.method = method;
+    this.tags = tags;
+    this.tried = tried;
+  }
+}
+
+function tagToTitleCase(txt) {
+  return txt
+    .toLowerCase()
+    .split("-")
+    .map((word) => word.charAt(0).toUpperCase() + word.slice(1))
+    .join(" ");
+}
+
 function showAddRecipePopup(input) {
   const task = inputBox.value.trim();
   if (!task) {
@@ -29,7 +48,7 @@ function showAddRecipePopup(input) {
   var text = inputBox.value;
   const h1Modal = document.querySelector("#recipeModalTitle");
   var sanitizeHTML = function (str) {
-    var temp = document.createElement("div");
+    const temp = document.createElement("div");
     temp.textContent = str;
     return temp.innerHTML;
   }; // (c) 2018 Chris Ferdinandi, MIT License, https://gomakethings.com
@@ -141,7 +160,10 @@ function showFullCard(input) {
   $("#link-container > p")[0].innerHTML = "Recipe link";
 
   // set ingredients
-  constructRecipeIngredients(ingredientsListClean);
+  constructRecipeIngredients(
+    ingredientsListClean,
+    document.getElementById("ingredients-ul"),
+  );
 
   // set method - assumes one paragraph with multiple <br>s
   const methodTextArea = document.getElementById("recipe-method-area");
@@ -208,19 +230,18 @@ function parseIngredients(recipeIngredientList) {
   return ingredientsArray;
 }
 
-function constructRecipeIngredients(ingredientsListClean) {
+function constructRecipeIngredients(ingredientsListClean, targetElement) {
   // set visibility
   $("#existing-ingredients-list").removeClass("d-none");
   $("#ingredients-input-area").addClass("d-none");
   // reset ul before adding the ingredients
-  const tagsUnorderedList = document.getElementById("ingredients-ul");
-  tagsUnorderedList.replaceChildren();
+  targetElement.replaceChildren();
   for (var j = 0; j < ingredientsListClean.length; j++) {
     const ingredientsListItem = document.createElement("li");
     ingredientsListItem.appendChild(
       document.createTextNode(ingredientsListClean[j]),
     );
-    tagsUnorderedList.appendChild(ingredientsListItem);
+    targetElement.appendChild(ingredientsListItem);
   }
 }
 
@@ -297,5 +318,106 @@ function loadRecipes() {
 }
 
 function setRecipesHTML(recipesObject) {
-  console.log(recipesObject[0]);
+  // get container
+  const allRecipesContainer = document.getElementById("all-recipes");
+  var recipesContentHolder = {};
+
+  for (var i = 0; i < recipesObject.length; i++) {
+    // ingest each one, return an object, add to container
+    const div = document.createElement("div");
+    div.classList.add("col-lg-4", "col-md-6", "recipe-outer-container");
+    const divRecCard = document.createElement("div");
+    divRecCard.classList.add("recipe-card");
+    div.appendChild(divRecCard);
+
+    recipesContentHolder["rec" + i] = transformJSONRecipe(
+      recipesObject[i],
+      divRecCard,
+    );
+
+    allRecipesContainer.appendChild(div);
+  }
+}
+
+function transformJSONRecipe(obj, div) {
+  let res = new Recipe();
+  res.title = obj.name;
+  res.url = obj.url;
+  res.tried = obj.tried;
+  res.method = obj.method;
+  res.ingredients = obj.ingredients;
+  res.tags = obj.tags;
+
+  var divTitle = document.createElement("div");
+  divTitle.classList.add("d-inline-flex");
+  divTitle.innerHTML = `
+  <div class="recipe-title">${res.title}</div>
+                    <button
+                      class="btn btn-outline-primary btn-sm"
+                      onclick="showFullCard(this)"
+                    >
+                      <svg
+                        xmlns="http://www.w3.org/2000/svg"
+                        width="16"
+                        height="16"
+                        fill="currentColor"
+                        class="bi bi-arrows-angle-expand"
+                        viewBox="0 0 16 16"
+                      >
+                        <path
+                          fill-rule="evenodd"
+                          d="M5.828 10.172a.5.5 0 0 0-.707 0l-4.096 4.096V11.5a.5.5 0 0 0-1 0v3.975a.5.5 0 0 0 .5.5H4.5a.5.5 0 0 0 0-1H1.732l4.096-4.096a.5.5 0 0 0 0-.707m4.344-4.344a.5.5 0 0 0 .707 0l4.096-4.096V4.5a.5.5 0 1 0 1 0V.525a.5.5 0 0 0-.5-.5H11.5a.5.5 0 0 0 0 1h2.768l-4.096 4.096a.5.5 0 0 0 0 .707"
+                        />
+                      </svg>
+                    </button>`;
+
+  div.appendChild(divTitle);
+
+  // Ingredients part:
+  var divIngredients = document.createElement("div");
+  divIngredients.classList.add("recipe-ingredients");
+  var hIngredients = document.createElement("h6");
+  hIngredients.innerHTML = "Ingredients:";
+  divIngredients.appendChild(hIngredients);
+  var ulIngredients = document.createElement("ul");
+  constructRecipeIngredients(res.ingredients, ulIngredients);
+  divIngredients.appendChild(ulIngredients);
+
+  div.appendChild(divIngredients);
+
+  // Method part:
+  var divMethod = document.createElement("div");
+  divMethod.classList.add("recipe-method");
+  var hMethod = document.createElement("h6");
+  hMethod.innerHTML = "Method:";
+  divMethod.appendChild(hMethod);
+  var pMethod = document.createElement("p");
+  pMethod.innerHTML = res.method;
+  divMethod.appendChild(pMethod);
+
+  div.appendChild(divMethod);
+
+  // Tags part:
+  var divTags = document.createElement("div");
+  divTags.classList.add("recipe-tags");
+  var hTags = document.createElement("h6");
+  hTags.innerHTML = "Tags:";
+  divTags.appendChild(hTags);
+  if (res.tags.length > 0) {
+    for (var i = 0; i < res.tags.length; i++) {
+      let s = document.createElement("span");
+      s.classList.add(res.tags[i]);
+      s.innerHTML = tagToTitleCase(res.tags[i]);
+      divTags.appendChild(s);
+    }
+  }
+
+  div.appendChild(divTags);
+
+  // If tried, add class to card
+  if (res.tried) {
+    div.classList.add("tried");
+  }
+
+  return res;
 }
