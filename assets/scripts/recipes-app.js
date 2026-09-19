@@ -35,6 +35,12 @@ function tagToTitleCase(txt) {
     .join(" ");
 }
 
+function addHeadingEl(div, txt) {
+  var h6 = document.createElement("h6");
+  h6.innerHTML = txt;
+  div.appendChild(h6);
+}
+ 
 function showAddRecipePopup(input) {
   const task = inputBox.value.trim();
   if (!task) {
@@ -376,9 +382,7 @@ function transformJSONRecipe(obj, div) {
   // Ingredients part:
   var divIngredients = document.createElement("div");
   divIngredients.classList.add("recipe-ingredients");
-  var hIngredients = document.createElement("h6");
-  hIngredients.innerHTML = "Ingredients:";
-  divIngredients.appendChild(hIngredients);
+  addHeadingEl(divIngredients, "Ingredients:");
   var ulIngredients = document.createElement("ul");
   constructRecipeIngredients(res.ingredients, ulIngredients);
   divIngredients.appendChild(ulIngredients);
@@ -388,9 +392,7 @@ function transformJSONRecipe(obj, div) {
   // Method part:
   var divMethod = document.createElement("div");
   divMethod.classList.add("recipe-method");
-  var hMethod = document.createElement("h6");
-  hMethod.innerHTML = "Method:";
-  divMethod.appendChild(hMethod);
+  addHeadingEl(divMethod, "Method:");
   var pMethod = document.createElement("p");
   pMethod.innerHTML = res.method;
   divMethod.appendChild(pMethod);
@@ -400,9 +402,7 @@ function transformJSONRecipe(obj, div) {
   // Tags part:
   var divTags = document.createElement("div");
   divTags.classList.add("recipe-tags");
-  var hTags = document.createElement("h6");
-  hTags.innerHTML = "Tags:";
-  divTags.appendChild(hTags);
+  addHeadingEl(divTags, "Tags:");
   if (res.tags.length > 0) {
     for (var i = 0; i < res.tags.length; i++) {
       let s = document.createElement("span");
