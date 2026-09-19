@@ -318,7 +318,7 @@ function loadRecipes() {
       .then((data) => data.json())
       .then((json) => {
         recipesObject = json.data;
-        setRecipesHTML(recipesObject.recipesLocal);
+        setRecipesHTML(recipesObject.recipesPublic);
       });
   }
 }
