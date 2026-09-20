@@ -60,17 +60,20 @@ function showAddRecipePopup(input) {
   }; // (c) 2018 Chris Ferdinandi, MIT License, https://gomakethings.com
   h1Modal.innerText = sanitizeHTML(text);
 
-  // set tags and ingredients visibility
+  // set visibility for tags, ingredients, url
   $("#recipe-existing-tags").addClass("d-none");
   $("#recipe-new-tags").removeClass("d-none");
   $("#existing-ingredients-list").addClass("d-none");
   $("#ingredients-input-area").removeClass("d-none");
+  $("#recipe-existing-link").addClass("d-none");
+  $("#recipe-link-input").removeClass("d-none");
+  $("#link-container > p")[0].className = "";
 
   // clears any values assigned to the elements from previous actions
   const modalInputAreas = [
     document.getElementById("recipe-ingredients-area"),
     document.getElementById("recipe-method-area"),
-    document.getElementById("recipe-link"),
+    document.getElementById("recipe-link-input"),
     document.getElementById("new-tags-input"),
   ];
 
@@ -160,10 +163,9 @@ function showFullCard(input) {
   // show modal
   $("#recipe-modal").modal("show");
 
-  // set title and change link label
+  // set title
   const recipeModalTitle = document.querySelector("#recipeModalTitle");
   recipeModalTitle.innerText = recipeTitle;
-  $("#link-container > p")[0].innerHTML = "Recipe link";
 
   // set ingredients
   constructRecipeIngredients(
@@ -179,9 +181,13 @@ function showFullCard(input) {
     .join("\r\n")
     .trim();
 
-  // set URL
-  const linkInput = document.getElementById("recipe-link");
-  linkInput.value = recipeLink;
+  // set URL: toggle visibility
+  $("#link-container > p")[0].className = "d-none";
+  const linkInput = document.getElementById("recipe-link-input");
+  linkInput.classList.add("d-none");
+  const linkExisting = document.getElementById("recipe-existing-link");
+  linkExisting.href = recipeLink;
+  linkExisting.classList.remove("d-none");
 
   // set tags: toggle visibility, parse and add to card
   const tagsInput = document.getElementById("recipe-existing-tags");
@@ -349,8 +355,6 @@ function transformJSONRecipe(obj, div) {
   let res = new Recipe();
   res.title = obj.name;
   res.URL = obj.URL;
-  console.log(obj);
-  console.log(obj.URL);
   res.tried = obj.tried;
   res.method = obj.method;
   res.ingredients = obj.ingredients;
@@ -417,7 +421,6 @@ function transformJSONRecipe(obj, div) {
   div.appendChild(divTags);
 
   // URL part
-  // <div class="recipe-link"><h6>URL:</h6><span></span></div>
   var divURL = document.createElement("div");
   divURL.classList.add("recipe-link");
   addHeadingEl(divURL, "URL:");
