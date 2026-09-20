@@ -17,9 +17,9 @@ document.addEventListener("DOMContentLoaded", () => {
 });
 
 class Recipe {
-  constructor(title, url, ingredients, method, tags, tried) {
+  constructor(title, URL, ingredients, method, tags, tried) {
     this.title = title;
-    this.url = url;
+    this.URL = URL;
     this.ingredients = ingredients;
     this.method = method;
     this.tags = tags;
@@ -348,7 +348,9 @@ function setRecipesHTML(recipesObject) {
 function transformJSONRecipe(obj, div) {
   let res = new Recipe();
   res.title = obj.name;
-  res.url = obj.url;
+  res.URL = obj.URL;
+  console.log(obj);
+  console.log(obj.URL);
   res.tried = obj.tried;
   res.method = obj.method;
   res.ingredients = obj.ingredients;
@@ -413,6 +415,17 @@ function transformJSONRecipe(obj, div) {
   }
 
   div.appendChild(divTags);
+
+  // URL part
+  // <div class="recipe-link"><h6>URL:</h6><span></span></div>
+  var divURL = document.createElement("div");
+  divURL.classList.add("recipe-link");
+  addHeadingEl(divURL, "URL:");
+  var spanURL = document.createElement("span");
+  spanURL.textContent = res.URL;
+  divURL.appendChild(spanURL);
+  
+  div.appendChild(divURL);
 
   // If tried, add class to card
   if (res.tried) {
